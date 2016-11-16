@@ -1,17 +1,28 @@
 <?php
-require 'Database.php';
+require_once 'Database.php';
+//echo "<br> req db";
 
 class ProductsGateway extends Database
 {
+	public function __construct()
+	{
+			//parent::__construct(); // Call the parent class's constructor
+			// $this->productService = new ProductsService();
+		// var_dump($this->productService);
+		//echo "<br> prodgateway constructor";
+
+
+	}
 
 	public function selectAll($order)
 	{
+		//echo "<br> prodgateway selall";
 		if (!isset($order))
 		{
-			$order = 'name';
+			$order = 'id';	//default sort order
 		}
-		echo "<br> prodgateway selall";
-		$pdo = Database::connect($order);
+
+		$pdo = Database::connect();
 		$sql = $pdo->prepare("SELECT * FROM products ORDER BY $order ASC");
 		$sql->execute();
 		// $result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -56,5 +67,3 @@ class ProductsGateway extends Database
 	}
 
 }
-
-?>

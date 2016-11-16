@@ -11,7 +11,9 @@ class ProductsController
 
 	public function __construct()
 	{
-		$this->productService = new ProductsService();
+		$this->productsService = new ProductsService();
+		//echo "<br>in prodcontroller constr";
+		//var_dump($this->productService->productGateway);
 	}
 
 	public function redirect($location)
@@ -58,32 +60,42 @@ class ProductsController
 
 	public function listProducts()
 	{
-		$orderby = isset($_GET['orderby']) ? $_GET['orderby'] : null;
-		echo "<br> in list prods 1";
+		$orderby = isset($_GET['orderby']) ? $_GET['orderby'] : 'id';
+		//echo "<br> in list prods 1";
+		#var_dump($this->productsService->getAllProducts($orderby));
 		$products = $this->productsService->getAllProducts($orderby);
-		echo "<br> in list prods 2";
-		include ROOT_PATH . 'view/products.php';
+		//var_dump($products);
+
+		//echo "<br> in list prods 2 - now call the view";
+		include ROOT_PATH . '/../view/products.php';
 	}
 
 	public function saveProduct()
 	{
 		$title = 'Create New Product';
 
-		$name 	= '';
-		$email  = '';
-		$mobile = '';
-
+		$part_number 	= '';
+		$description  = '';
+		$image = '';
+		$stock_quantity = 0;
+		$cost_price = 0;
+		$selling_price = 0;
+		$vat_rate = 20;
 		$errors = array();
 
 		if (isset($_POST['form-submitted']))
 		{
-			$name   = isset($_POST['name'])   ? trim($_POST['name'])   : null;
-			$email  = isset($_POST['email'])  ? trim($_POST['email'])  : null;
-			$mobile = isset($_POST['mobile']) ? trim($_POST['mobile']) : null;
+			$part_number   = isset($_POST['part_number']) ? trim($_POST['part_number']) : null;
+			$description  = isset($_POST['description'])  ? trim($_POST['description'])  : null;
+			$image = isset($_POST['image']) ? $_POST['image'] : null;
+			$stock_quantity  = isset($_POST['stock_quantity'])  ? trim($_POST['stock_quantity'])  : null;
+			$cost_price  = isset($_POST['cost_price'])  ? trim($_POST['cost_price'])  : null;
+			$selling_price  = isset($_POST['selling_price'])  ? trim($_POST['selling_price'])  : null;
+			$vat_rate  = isset($_POST['vat_rate'])  ? trim($_POST['vat_rate'])  : null;
 
 			try
 			{
-				$this->productsService->createNewProduct($name, $email, $mobile);
+				$this->productsService->createNewProduct($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate);
 				$this->redirect('index.php');
 				return;
 			}
@@ -93,7 +105,7 @@ class ProductsController
 			}
 		}
 		// Include view from Create form
-		include ROOT_PATH . '/view/create.php';
+		include ROOT_PATH . '/../view/create.php';
 	}
 
 	public function editProduct()
@@ -105,7 +117,7 @@ class ProductsController
 		$mobile = '';
 		$id     = $_GET['id'];
 
-		$contact = $this->productsService->getProduct($id);
+		$product = $this->productsService->getProduct($id);
 
 		$errors = array();
 
@@ -126,7 +138,7 @@ class ProductsController
 				$errors = $e->getErrors();
 			}
 		}
-		include ROOT_PATH . 'view/update.php';
+		include ROOT_PATH . '/../view/update.php';
 	}
 
 	public function deleteProduct()
@@ -145,9 +157,9 @@ class ProductsController
 		{
 			throw new Exception('Internal error');
 		}
-		$contact = $this->productsService->getProduct($id);
+		$product = $this->productsService->getProduct($id);
 
-		include ROOT_PATH . 'view/delete.php';
+		include ROOT_PATH . '/../view/delete.php';
 
 	}
 
@@ -161,15 +173,13 @@ class ProductsController
 		{
 			throw new Exception('Internal error');
 		}
-		$contact = $this->productsService->getProduct($id);
+		$product = $this->productsService->getProduct($id);
 
-		include ROOT_PATH . 'view/view.php';
+		include ROOT_PATH . '/../view/view.php';
 	}
 
 	public function showError($title, $message)
 	{
-		include ROOT_PATH . 'view/error.php';
+		include ROOT_PATH . '/../view/error.php';
 	}
 }
-
-?>

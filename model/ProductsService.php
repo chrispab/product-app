@@ -2,8 +2,14 @@
 #$fp = (__DIR__);
 #echo $fp;
 require_once 'ProductsGateway.php';
+//echo "<br> req prodgateway";
+
 require_once 'ValidationException.php';
-require_once 'Database.php';
+//echo "<br> req valexep";
+
+//require_once 'Database.php';
+//echo "<br> req db";
+
 
 class ProductsService extends ProductsGateway
 {
@@ -12,18 +18,22 @@ class ProductsService extends ProductsGateway
 
 	public function __construct()
 	{
-		echo "<br> prodservice constructor";
-		$this->productsGateway = new ProductsGateway();
-		echo "<br> prodservice constructed";
+		//parent::__construct(); // Call the parent class's constructor
+		//echo "<br> prodservice constructor";
+		//$this->productsGateway = new ProductsGateway();
+		//var_dump($this->productsGateway);
+		//echo "<br> prodservice constructed";
+
 	}
 
 	public function getAllProducts($orderby)
 	{
+		//echo "<br> ********   in getallprods";
 		try
 		{
-			echo "<br> in getallprods";
+
 			self::connect();
-			$result = $this->productsGateway->selectAll($orderby);
+			$result = $this->selectAll($orderby);
 			self::disconnect();
 			return $result;
 		}
@@ -39,7 +49,7 @@ class ProductsService extends ProductsGateway
 		try
 		{
 			self::connect();
-			$result = $this->productsGateway->selectById($id);
+			$result = $this->selectById($id);
 			self::disconnect();
 		}
 		catch(Exception $e)
@@ -47,7 +57,7 @@ class ProductsService extends ProductsGateway
 			self::disconnect();
 			throw $e;
 		}
-		return $this->productsGateway->selectById($id);
+		return $this->selectById($id);
 	}
 
 	private function validateProductParams($name, $email, $mobile)
@@ -116,5 +126,3 @@ class ProductsService extends ProductsGateway
 	}
 
 }
-
-?>

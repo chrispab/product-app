@@ -1,15 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="en">
-	<head>
-		<title>Crud app Update Form</title>
-		<meta charset="utf-8">
-		<link href="http://localhost/projects/dist/css/bootstrap.min.css" rel="stylesheet">
-		<script src="http://localhost/projects/dist/js/bootstrap.min.js"></script>
-	</head>
-
-	<body>
-		<div class="container">
-			<div class="span 10 offset1">
+<?php
+// set page headers
+$page_title = "New Products Header title2";
+include_once "header.php"; ?>
 				<div class="row">
 					<h3><strong>Update product</strong></h3>
 					<?php
@@ -25,25 +17,25 @@
 
 				<form class="form-horizontal" action="" method="post">
 					<div class="control-group">
-						<label class="control-label">Name</label>
+						<label class="control-label">ID</label>
 							<div class="controls">
-								<input type="text" name="name" placeholder="Name" value="<?php echo htmlentities($product->name); ?>">
+								<input type="text" name="id" placeholder="ID" value="<?php echo htmlentities($product->id); ?>">
 								<span class="help-inline"></span>
 							</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label">Email Address</label>
+						<label class="control-label">Part Number</label>
 							<div class="controls">
-								<input type="text" name="email" placeholder="Email Address" value="<?php echo htmlentities($product->email); ?>">
+								<input type="text" name="part_number" placeholder="Part Number" value="<?php echo htmlentities($product->part_number); ?>">
 								<span class="help-inline"></span>
 							</div>
 					</div>
 
 					<div class="control-group">
-						<label class="control-label">Mobile Number</label>
+						<label class="control-label">Description</label>
 							<div class="controls">
-								<input type="text" name="mobile" placeholder="Mobile Number" value="<?php echo htmlentities($product->phone); ?>">
+								<input type="text" name="description" placeholder="Description" value="<?php echo htmlentities($product->description); ?>">
 								<span class="help-inline"></span>
 							</div>
 					</div>
@@ -55,6 +47,6 @@
 					</div>
 				</form>
 			</div>
-		</div>
-	</body>
-</html>
+			<?php
+			include_once "footer.php";
+			?>

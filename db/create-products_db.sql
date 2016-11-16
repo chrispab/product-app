@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `part_number` varchar(50) CHARACTER SET latin1 NOT NULL,
   `description` varchar(150) CHARACTER SET latin1 NOT NULL,
-  'img' LONGBLOB NOT NULL,
+  'image' LONGBLOB NOT NULL,
   `stock_quantity` varchar(255) CHARACTER SET latin1 NOT NULL,
   `cost_price` varchar(255) CHARACTER SET latin1 NOT NULL,
   `selling_price` varchar(255) CHARACTER SET latin1 NOT NULL,
