@@ -60,18 +60,31 @@ class ProductsService extends ProductsGateway
 		return $this->selectById($id);
 	}
 
-	private function validateProductParams($name, $email, $mobile)
+	private function validateProductParams($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate)
 	{
+		echo "<br> ********   validating prod params";
 		$errors = array();
 
-		if ( !isset($name) || empty($name) ) {
-		    $errors[] = 'Name is required';
+		if ( !isset($part_number) || empty($part_number) ) {
+		    $errors[] = 'Part Number is required';
 		}
-		if ( !isset($email) || empty($email) ) {
-		    $errors[] = 'Email is required';
+		if ( !isset($description) || empty($description) ) {
+		    $errors[] = 'Description is required';
 		}
-		if ( !isset($mobile) || empty($mobile) ) {
-		    $errors[] = 'Mobile is required';
+		if ( !isset($stock_quantity) || empty($stock_quantity) ) {
+		    $errors[] = 'Stock Level is required';
+		}
+		if ( !isset($cost_price) || empty($cost_price) ) {
+		    $errors[] = 'Cost Price is required';
+		}
+		if ( !isset($selling_price) || empty($selling_price) ) {
+		    $errors[] = 'Selling Price is required';
+		}
+		if ( !isset($vat_rate) || empty($vat_rate) ) {
+		    $errors[] = 'VAT Rate is required';
+		}
+		if ( !isset($image) || empty($image) ) {
+		    $errors[] = 'An Image is required';
 		}
 		if (empty($errors))
 		{
@@ -80,13 +93,14 @@ class ProductsService extends ProductsGateway
 		throw new ValidationException($errors);
 	}
 
-	public function createNewProduct($name, $email, $mobile)
+	public function createNewProduct($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate)
 	{
+		echo "<br> ********   in createnew product";
 		try
 		{
 			self::connect();
-			$this->validateProductParams($name, $email, $mobile);
-			$result = $this->productsGateway->insert($name, $email, $mobile);
+			$this->validateProductParams($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate);
+			$result = $this->insert($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate);
 			self::disconnect();
 			return $result;
 		}
@@ -97,12 +111,12 @@ class ProductsService extends ProductsGateway
 		}
 	}
 
-	public function editProduct($name, $email, $mobile, $id)
+	public function editProduct($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate)
 	{
 		try
 		{
 			self::connect();
-			$result = $this->productsGateway->edit($name, $email, $mobile, $id);
+			$result = $this->productsGateway->edit($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate);
 			self::disconnect();
 		}
 		catch(Exception $e) {
@@ -115,7 +129,7 @@ class ProductsService extends ProductsGateway
 		try
 		{
 			self::connect();
-			$result = $this->productsGateway->delete($id);
+			$result = $this->delete($id);
 			self::disconnect();
 		}
 		catch(Exception $e)
