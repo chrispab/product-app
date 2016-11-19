@@ -10,58 +10,44 @@ require_once 'ValidationException.php';
 //require_once 'Database.php';
 //echo "<br> req db";
 
-
-class ProductsService extends ProductsGateway
-{
+class ProductsService extends ProductsGateway {
 
 	private $productsGateway = null;
 
-	public function __construct()
-	{
+	public function __construct() 	{
 		//parent::__construct(); // Call the parent class's constructor
 		//echo "<br> prodservice constructor";
 		//$this->productsGateway = new ProductsGateway();
-		//var_dump($this->productsGateway);
-		//echo "<br> prodservice constructed";
-
 	}
 
-	public function getAllProducts($orderby)
-	{
+	public function getAllProducts($orderby) {
 		//echo "<br> ********   in getallprods";
-		try
-		{
-
+		try 		{
 			self::connect();
 			$result = $this->selectAll($orderby);
 			self::disconnect();
 			return $result;
 		}
-		catch(Exception $e)
-		{
+		catch(Exception $e) {
 			self::disconnect();
 			throw $e;
 		}
 	}
 
-	public function getProduct($id)
-	{
-		try
-		{
+	public function getProduct($id) {
+		try {
 			self::connect();
 			$result = $this->selectById($id);
 			self::disconnect();
 		}
-		catch(Exception $e)
-		{
+		catch(Exception $e) {
 			self::disconnect();
 			throw $e;
 		}
 		return $this->selectById($id);
 	}
 
-	private function validateProductParams($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate)
-	{
+	private function validateProductParams($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate) {
 		echo "<br> ********   validating prod params";
 		$errors = array();
 
@@ -86,37 +72,33 @@ class ProductsService extends ProductsGateway
 		if ( !isset($image) || empty($image) ) {
 		    $errors[] = 'An Image is required';
 		}
-		if (empty($errors))
-		{
+		if (empty($errors)) {
 			return;
 		}
 		throw new ValidationException($errors);
 	}
 
-	public function createNewProduct($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate)
-	{
-		echo "<br> ********   in createnew product";
-		try
-		{
+	public function createNewProduct($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate) {
+		echo "<br> ********   in createnew product  pn= " . $part_number;
+		//die();
+
+		try {
 			self::connect();
-			$this->validateProductParams($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate);
+//			$this->validateProductParams($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate);
 			$result = $this->insert($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate);
 			self::disconnect();
 			return $result;
 		}
-		catch(Exception $e)
-		{
+		catch(Exception $e) {
 			self::disconnect();
 			throw $e;
 		}
 	}
 
-	public function editProduct($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate)
-	{
-		try
-		{
+	public function updateProduct($id, $part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate) {
+		try {
 			self::connect();
-			$result = $this->productsGateway->edit($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate);
+			$result = $this->edit($id, $part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate);
 			self::disconnect();
 		}
 		catch(Exception $e) {
@@ -124,19 +106,15 @@ class ProductsService extends ProductsGateway
 			throw $e;
 		}
 	}
-	public function deleteProduct($id)
-	{
-		try
-		{
+	public function deleteProduct($id) {
+		try {
 			self::connect();
 			$result = $this->delete($id);
 			self::disconnect();
 		}
-		catch(Exception $e)
-		{
+		catch(Exception $e) {
 			self::disconnect();
 			throw $e;
 		}
 	}
-
 }

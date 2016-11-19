@@ -34,7 +34,9 @@ include_once "header.php"; ?>
 								<td><?php echo htmlentities($product->part_number); ?></td>
 								<td><?php echo htmlentities($product->description); ?></td>
 
-								<td> <img class="img-responsive" src="product_images/<?php echo $product->image; ?>"> </td>
+								<td> <a href="index.php?op=show&id=<?php echo $product->id; ?>">
+									<img class="img-responsive" src="product_images/<?php echo $product->image; ?>"> </td>
+									</a>
 								<td><?php echo htmlentities($product->stock_quantity); ?></td>
 								<td><?php echo htmlentities($product->cost_price); ?></td>
 								<td><?php echo htmlentities($product->selling_price); ?></td>

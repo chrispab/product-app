@@ -38,7 +38,7 @@
 					</tr>
 					<tr>
         				<td>Image :</td>
-        				<td><?php echo $product->image; ?></td>
+        				<td><img class="img-responsive" src="product_images/<?php echo $product->image; ?>"></td>
         			</tr>
       				<tr>
 						<td>Stock Quantity :</td>
