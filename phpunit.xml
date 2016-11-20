@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit convertWarningsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertErrorsToExceptions="true"
+        backupStaticAttributes="false"
+        processIsolation="false"
+        stopOnFailure="false"
+        backupGlobals="false"
+        syntaxCheck="false"
+        colors="true">
+    <testsuites>
+        <testsuite name="HelloWorld Test Suite">
+            <directory>./tests/</directory>
+            <file>HelloWorldTest.php</file>
+        </testsuite>
+    </testsuites>
+    <php>
+        <var name="SOME_CONSTANT_CONFIG" value="Test Value" />
+    </php>
+</phpunit>

@@ -1,0 +1,18 @@
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+}
+
+@-moz-document url-prefix() {
+    fieldset {
+        display: table-cell;
+    }
+}
+
+select {
+    max-width: 100%;
+}

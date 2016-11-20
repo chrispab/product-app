@@ -35,8 +35,11 @@ class ProductsController
 	public function handleRequest() {
 		$op = isset($_GET['op']) ? $_GET['op'] : null;
 
-		try {
-			if (!$op || $op == 'list') {
+
+			if (!$op) {
+				$this->renderView('home.php');
+			}
+			elseif ($op == 'list') {
 				$this->listProducts();
 			}
 			elseif ($op == 'new') {
@@ -54,13 +57,12 @@ class ProductsController
 			else {
 				$this->showError("Operation not supported", "Operation for execution: " . $op . " - was not found");
 			}
-		}
-		catch(Exception $e) {
-			$this->showError("Application error", $e->getMessage());
-		}
+
 	}
 
-
+/**
+ *
+ */
 	public function listProducts() {
 		$orderby = isset($_GET['orderby']) ? $_GET['orderby'] : 'id';
 		$products = $this->productsService->getAllProducts($orderby);
@@ -88,6 +90,9 @@ class ProductsController
 		$this->renderView('create.php',$product,$errors);
 	}
 
+	/**
+	 *
+	 */
 	public function updateProduct() {
 
 		$errors = array();
@@ -110,18 +115,27 @@ class ProductsController
 				//$this->productsService->updateProduct($product->id, $product->part_number, $product->description, $product->image,$product->stock_quantity, $product->cost_price, $product->selling_price, $product->vat_rate);
 				$this->productsService->updateProduct($product);
 
+				?>
+					<script>
+					    alert('Successfully Updated ...');
+					    window.location.href='index.php';
+					</script>
+				<?php
+
 				$this->redirect('index.php');
 			}
 		}
 		else { //no update form submitted - first call to update form var vals
 			$id = isset($_GET['id']) ? $_GET['id'] : null;
 			$product = $this->productsService->getProduct($id);
-			var_dump($product);
+			//var_dump($product);
 		}
 		$this->renderView('update.php',$product,$errors);
 	}
 
-
+	/**
+	 *
+	 */
 	public function deleteProduct() {
 		$id = isset($_GET['id']) ? $_GET['id'] : null;
 
@@ -138,6 +152,9 @@ class ProductsController
 		$this->renderView('delete.php', $product);
 	}
 
+	/**
+	 *
+	 */
 	public function showProduct() {
 		$id = isset($_GET['id']) ? $_GET['id'] : null;
 
@@ -151,17 +168,23 @@ class ProductsController
 		$this->renderView('view.php', $product);
 	}
 
-
+	/**
+	 *
+	 */
 	public function renderView($viewToShow, $product = NULL, $errors=NULL){
 		include ROOT_PATH . '/../view/' . $viewToShow;
 	}
 
-
+	/**
+	 *
+	 */
 	public function redirect($location) {
 		header('Location: ' . $location);
 	}
 
-
+	/**
+	 *
+	 */
 	public function showError($title, $message) {
 		include ROOT_PATH . '/../view/error.php';
 	}

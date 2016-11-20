@@ -1,9 +1,9 @@
 <?php
-// set page headers
-$page_title = "Create a New Product";
-include_once "header.php"; ?>
+include_once "header.php";
+include_once "navbar.php"
+?>
 <div class="row">
-	<h3><strong>Add a new product</strong></h3>
+
 	<?php
 		if ($errors) {
 			echo '<ul class="errors">';
@@ -14,6 +14,8 @@ include_once "header.php"; ?>
 		}
 	?>
 </div>
+<div class="container">
+	<h3><strong>Add a new product</strong></h3>
 
 	<form action="index.php?op=new" method="post" enctype="multipart/form-data">
 		<div class="form-group">
@@ -53,6 +55,8 @@ include_once "header.php"; ?>
 
 	</form>
 </div>
+</div>
+
 <?php
 include_once "footer.php";
 ?>

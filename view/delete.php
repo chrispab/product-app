@@ -17,15 +17,16 @@
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         Database::disconnect();
-        header("Location: index.php");
+        header("Location: index.php?op=list");
 
     }
 ?>
 
 <?php
-// set page headers
-$page_title = "New Products Header title2";
-include_once "header.php"; ?>
+include_once "header.php";
+include_once "navbar.php"
+?>
+<div id="products" class="container">
 
                     <div class="row">
                         <h3>Delete a Product</h3>
@@ -39,7 +40,7 @@ include_once "header.php"; ?>
                           <a class="btn" href="index.php">No</a>
                         </div>
                     </form>
-                </div>
+</div>
 
                 <?php
     			include_once "footer.php";

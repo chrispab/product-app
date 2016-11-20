@@ -1,5 +1,8 @@
 {
     "require": {
         "phpdocumentor/phpdocumentor": "2.*"
+    },
+    "require": {
+                "phpunit/phpunit": "5.5.*"
     }
 }
