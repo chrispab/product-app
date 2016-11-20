@@ -3,10 +3,6 @@ require_once 'Database.php';
 
 class ProductsGateway extends Database {
 	public function __construct() {
-			//parent::__construct(); // Call the parent class's constructor
-			// $this->productService = new ProductsService();
-		// var_dump($this->productService);
-		//echo "<br> prodgateway constructor";
 	}
 
 	public function selectAll($orderby) {

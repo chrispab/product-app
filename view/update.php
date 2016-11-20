@@ -31,7 +31,7 @@ include_once "header.php"; ?>
 		<div class="form-group">
 			<label for="image">Image: </label>
 			<img class="img-responsive" src="product_images/<?php echo $product->image; ?>">
-			<input type="file" name="imagefile"  id="image" value="<?php echo $product->image; ?>" >
+			<input type="file" name="imagefile"  id="image"  >
 		</div>
 		<div class="form-group">
 			<label for="stock_quantity">Stock Quantity: </label>
