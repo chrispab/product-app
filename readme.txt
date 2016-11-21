@@ -2,6 +2,8 @@ README.TXT
 for: Product_app
 By:C.Battisson
 
+Primitive PHP OO MVC CRUD w/Bootstrap responsive interface
+
 Installation:
 
 Unzip into dir
@@ -19,7 +21,7 @@ on github:
     https://github.com/chrispab/product-app
 
 todo:
-improve form data validation
+improve form validation
 complete PHPDoc data
 Complete PHPUnit Tests
 Improve error handling
