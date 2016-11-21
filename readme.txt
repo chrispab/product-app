@@ -1,5 +1,3 @@
-# product-app
-
 README.TXT
 for: Product_app
 By:C.Battisson

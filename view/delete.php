@@ -27,7 +27,7 @@ include_once "header.php";
 include_once "navbar.php"
 ?>
 <div id="products" class="container">
-
+    <div class="well">
                     <div class="row">
                         <h3>Delete a Product</h3>
                     </div>
@@ -37,9 +37,10 @@ include_once "navbar.php"
                       <p class="alert alert-error">Are you sure you wish to delete this product?</p>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-danger">Yes</button>
-                          <a class="btn" href="index.php">No</a>
+                          <a class="btn" href="index.php?op=list">No</a>
                         </div>
                     </form>
+    </div>
 </div>
 
                 <?php

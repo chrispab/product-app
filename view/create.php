@@ -50,8 +50,9 @@ include_once "navbar.php"
 		</div>
 
 		<input type="hidden" name="add-new-product" value="1">
-		<button type="submit" class="btn btn-success">Create</button>
-		<a class="btn btn-default" href="index.php">Back</a>
+
+		<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save"></span>Save</button>
+		<a class="btn btn-default" href="index.php?op=list">Back</a>
 
 	</form>
 </div>

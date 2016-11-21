@@ -6,6 +6,7 @@ include_once "navbar.php"
 <div class="container">
 	<h1><strong>All Products</strong></h1>
 	<br>
+		<p><a href="index.php?op=new" class="btn btn-success">Add New Product</a></p>
 	<?php foreach ($product as $prod) : ?>
 		<div class="row  border">
 

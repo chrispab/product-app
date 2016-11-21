@@ -84,7 +84,7 @@ class ProductsController
 				$this->productsService->storeImage($product->image);	//upload file
 
 				//prod created so alert user all OK
-				$this->redirect('index.php');//all done go to start
+				$this->redirect('index.php?op=list');//all done go to start
 			}
 		}
 		$this->renderView('create.php',$product,$errors);

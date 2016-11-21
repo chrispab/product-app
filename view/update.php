@@ -53,7 +53,7 @@ include_once "navbar.php"
 		</div>
 
 		<input type="hidden" name="btn-save-updates" value="1">
-		<button type="submit" class="btn btn-success">Update</button>
+		<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save"></span>Save</button>
 		<a class="btn btn-default" href="index.php?op=list">Back</a>
 
 	</form>
