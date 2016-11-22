@@ -122,7 +122,7 @@ class ProductsController
 					</script>
 				<?php
 
-				$this->redirect('index.php');
+				$this->redirect('index.php?op=list');
 			}
 		}
 		else { //no update form submitted - first call to update form var vals

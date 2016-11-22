@@ -2,7 +2,9 @@ README.TXT
 for: Product_app
 By:C.Battisson
 
-Primitive PHP OO MVC CRUD w/Bootstrap responsive interface
+Primitive PHP OO MVC(P) CRUD w/Bootstrap responsive interface
+static routing
+
 
 Installation:
 
@@ -19,6 +21,9 @@ in browser http://products.app
 
 on github:
     https://github.com/chrispab/product-app
+
+notes:
+    responsive tables in bootstrap:
 
 todo:
 improve form validation

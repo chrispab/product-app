@@ -1,15 +1,13 @@
 <?php
-// echo "hello";
-// $fp = (__DIR__."/../controller/ProductsController.php");
-// echo $fp;
+/**
+ * Primary file. Point of entry for the ap.
+ *
+ * Index.php intercepts all requests from the client.
+ * Includes primary productsController, creates it and passes web requests to
+ * it for further routing and processing
+ */
+ 
 require_once(__DIR__."/../controller/ProductsController.php");
 
-//require_once '../controller/ProductsController.php';
-// echo "after req";
 $controller = new ProductsController();
-#$db = new Database();
-#$db->connect();
-//Database::connect();
-//$products = $controller->productsService->getAllProducts('id');
-//var_dump($products);
 $controller->handleRequest();

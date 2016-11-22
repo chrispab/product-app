@@ -23,7 +23,7 @@ include_once "navbar.php"
 	    </div>
 
 	    <div class="col-sm-2 ">
-	      <p><a href="index.php?op=show&id=<?php echo $prod->id; ?>">
+	      <p><a href="index.php?op=show&id=<?php echo $prod->id; ?>" >
 			  <img class="img-responsive" src="product_images/<?php echo $prod->image; ?>" class="img-thumbnail" width="100">
 			  </a>
 		  </p>

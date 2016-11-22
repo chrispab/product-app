@@ -1,6 +1,6 @@
 <?php
-include_once "header.php";
-include_once "navbar.php"
+include_once "headerbs4.php";
+include_once "navbarbs4.php"
 ?>
 <div class="container">
 
@@ -11,13 +11,12 @@ include_once "navbar.php"
 		<p><a href="index.php?op=new" class="btn btn-success">Add New Product</a></p>
 
 
-			<div class="table-responsive">
-				<table class="table table-striped table-bordered">
+			<div class="table-responsive table-reflow">
+				<table class="table table-striped table-bordered ">
 					<thead>
 						<tr>
 							<th><a href="?orderby=id">id</a></th>
 							<th><a href="?orderby=part_number">Part Number</a></th>
-
 							<th><a href="?orderby=description">Description</a></th>
 							<th><a href="?orderby=image">Image</a></th>
 							<th><a href="?orderby=stock_quantity">Stock Quantity</a></th>
@@ -36,7 +35,7 @@ include_once "navbar.php"
 								<td ><?php echo htmlentities($prod->description); ?></td>
 
 								<td> <a href="index.php?op=show&id=<?php echo $prod->id; ?>">
-									<img class="img-responsive" src="product_images/<?php echo $prod->image; ?>">
+									<img class="img-responsive" src="product_images/<?php echo $prod->image; ?>" width="200">
 									</a></td>
 								<td><?php echo htmlentities($prod->stock_quantity); ?></td>
 								<td><?php echo htmlentities($prod->cost_price); ?></td>
@@ -45,7 +44,6 @@ include_once "navbar.php"
 								<td><?php echo htmlentities($prod->vat_rate); ?></td>
 								<td>
 									<a class="btn btn-info" href="index.php?op=show&id=<?php echo $prod->id; ?>">View</a>
-
 									<a class="btn btn-success" href="index.php?op=edit&id=<?php echo $prod->id; ?>">Update</a>
 									<a class="btn btn-danger" href="index.php?op=delete&id=<?php echo $prod->id; ?>">Delete</a>
 								</td>
@@ -55,10 +53,7 @@ include_once "navbar.php"
 					</tbody>
 				</table>
 			</div>
-
-
-
 </div>
 			<?php
-			include_once "footer.php";
+			include_once "footerbs4.php";
 			?>
