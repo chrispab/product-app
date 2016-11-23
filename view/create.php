@@ -2,30 +2,25 @@
 include_once "header.php";
 include_once "navbar.php"
 ?>
-<div class="row">
 
-	<?php
-		if ($errors) {
-			echo '<ul class="errors">';
-			foreach ($errors as $field => $error) {
-				echo '<li>' . htmlentities($error) . '</li>';
-			}
-			echo '</ul>';
-		}
-	?>
-</div>
 <div class="container">
 	<h3><strong>Add a new product</strong></h3>
 
-	<form action="index.php?op=new" method="post" enctype="multipart/form-data">
+	<form method="post" enctype="multipart/form-data" action="index.php?op=new" >
+
+<?php var_dump($errors); ?>
+
 		<div class="form-group">
-			 <?php echo $product->part_number; ?>
 			<label for="part_number">Part Number: </label>
+			<span class="error">* <?php echo $errors['part_number_err'];?></span>
 	        <input type="text" class="form-control" name="part_number" id="part_number" value="<?php echo $product->part_number; ?>"  placeholder="Part Number" required autofocus>
+			<?php echo "<p class='text-danger'>{$errors['part_number_err']}</p>";?>
 		</div>
+
 		<div class="form-group">
-			<label for="description">Description: </label>
+			<label for="description">Description: </label><?php echo "<p class='text-danger'>{$errors['description_err']}</p>";?>
 	        <textarea class="form-control" name="description" rows="10" cols="30" id="description"> <?php echo $product->description; ?> </textarea>
+
 		</div>
 		<div class="form-group">
 			<label for="image">Image: </label>

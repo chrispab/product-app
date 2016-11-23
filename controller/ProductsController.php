@@ -1,6 +1,4 @@
 <?php
-require_once (__DIR__.'/../model/Autoloader.php');
-require_once (__DIR__. '/../model/ProductsService.php');
 /**
  * Primasry file. ProductsController manages primitive static routing
  * and calls CRUD functions to achieve required actions
@@ -8,11 +6,9 @@ require_once (__DIR__. '/../model/ProductsService.php');
  * A *description*, that can span multiple lines, to go _in-depth_ into the details of this element
  * and to provide some background information or textual references.
  *
- * @param string $myArgument With a *description* of this argument, these may also
- *    span multiple lines.
- *
- * @return void
  */
+require_once (__DIR__.'/../model/Autoloader.php');
+require_once (__DIR__. '/../model/ProductsService.php');
 
 class ProductsController
 {
@@ -23,18 +19,14 @@ class ProductsController
 	}
 
 	/**
-	 * Handles requests and routes to correct method
+	 * Handles requests and routes to correct method.
 	 *
-	 * processes request and routes to correct methodtextual references.
-	 *
-	 * @param string $myArgument With a *description* of this argument, these may also
-	 *    span multiple lines.
+	 * @param No params
 	 *
 	 * @return void
 	 */
 	public function handleRequest() {
 		$op = isset($_GET['op']) ? $_GET['op'] : null;
-
 
 			if (!$op) {
 				$this->renderView('home.php');
@@ -57,27 +49,47 @@ class ProductsController
 			else {
 				$this->showError("Operation not supported", "Operation for execution: " . $op . " - was not found");
 			}
-
 	}
 
-/**
- *
- */
+	/**
+	 * List all products in db.
+	 *
+	 * @param No params
+	 *
+	 * @return void
+	 */
 	public function listProducts() {
 		$orderby = isset($_GET['orderby']) ? $_GET['orderby'] : 'id';
 		$products = $this->productsService->getAllProducts($orderby);
 		$this->renderView('listProducts.php',$products);
 	}
 
-
+	/**
+	 * create new product in db.
+	 *
+	 * @param No params
+	 *
+	 * @return void
+	 */
 	public function createProduct() {
 
-		$errors = array();
+		// //clear error array
+
+        $errors = array("part_number_err"=>"",
+		 				"description_err"=>"",
+						"image_err"=>"",
+						"stock_quantity_err"=>"",
+						"image_err"=>"",
+                        "cost_price_err"=>"",
+                        "selling_price_err"=>"",
+						"vat_rate_err"=>"",
+						"errs_count"=>"");
+
 		$product = $this->productsService->tempProduct();
 		if (isset($_POST['add-new-product'])) { //if new product form submitted
 			$product->getPostParams();
 			$errors = $product->validateProductParams();
-			if (!$errors) {
+			if (!$errors['errs_count']) {
 				//validate image HEREEREEEREREERE**********
 				//only do following if all parama ok
 				$this->productsService->createNewProduct($product);
@@ -91,11 +103,26 @@ class ProductsController
 	}
 
 	/**
+	 * update/modify a products in db.
 	 *
+	 * @param No params
+	 *
+	 * @return void
 	 */
 	public function updateProduct() {
 
-		$errors = array();
+		// //clear error array
+
+        $errors = array("part_number_err"=>"",
+		 				"description_err"=>"",
+						"image_err"=>"",
+						"stock_quantity_err"=>"",
+						"image_err"=>"",
+                        "cost_price_err"=>"",
+                        "selling_price_err"=>"",
+						"vat_rate_err"=>"",
+						"errs_count"=>"");
+
 		$product = $this->productsService->tempProduct();
 		//if update-product form submitted
 		if (isset($_POST['btn-save-updates'])) {
@@ -104,10 +131,10 @@ class ProductsController
 			$errors = $product->validateProductParams();
 			var_dump($errors);
 			var_dump($product);
-			if (!$errors) {//no errs so update db record
+			if ( (!$errors['errs_count']) || ( ($errors['errs_count']==1) && ($errors['image_err']) ) ) {//no errs so update db record
 				if (!empty($product->image)) { //if new img storeimage
-					$this->storeImage($product->image);	//upload file
-				}
+					$this->productsService->storeImage($product->image);
+				}	//upload file				}
 				else{//use previous old image no change
 					$product->image = $this->productsService->getCurrentImageFileName($product->id);
 				}
@@ -134,7 +161,11 @@ class ProductsController
 	}
 
 	/**
+	 * delete a product in db.
 	 *
+	 * @param No params
+	 *
+	 * @return void
 	 */
 	public function deleteProduct() {
 		$id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -153,7 +184,11 @@ class ProductsController
 	}
 
 	/**
+	 * displays single product in db.
 	 *
+	 * @param No params
+	 *
+	 * @return void
 	 */
 	public function showProduct() {
 		$id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -169,21 +204,36 @@ class ProductsController
 	}
 
 	/**
+	 * render view.
 	 *
+	 * @param string $viewToShow specifies view file to render.
+	 * @param object $product can be passed optional to view or NULL.
+	 * @param array $errors contains list of backend validation errors or NULL
+	 *
+	 * @return void
 	 */
 	public function renderView($viewToShow, $product = NULL, $errors=NULL){
 		include ROOT_PATH . '/../view/' . $viewToShow;
 	}
 
 	/**
+	 * redirect to specified location
 	 *
+	 * @param $location specifies redirect location
+	 *
+	 * @return void
 	 */
 	public function redirect($location) {
 		header('Location: ' . $location);
 	}
 
 	/**
+	 * show error page when called
 	 *
+	 * @param string $title to display on err page.
+	 * @param string $message to display on error page
+	 *
+	 * @return void
 	 */
 	public function showError($title, $message) {
 		include ROOT_PATH . '/../view/error.php';

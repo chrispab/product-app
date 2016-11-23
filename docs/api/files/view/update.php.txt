@@ -1,9 +1,10 @@
 <?php
-$page_title = "Update Product";
-include_once "header.php"; ?>
+include_once "header.php";
+include_once "navbar.php"
+?>
 
 <div class="row">
-	<h3><strong>Update product</strong></h3>
+
 	<?php
 		if ($errors) {
 			echo '<ul class="errors">';
@@ -14,7 +15,8 @@ include_once "header.php"; ?>
 		}
 	?>
 </div>
-
+<div class="container">
+<h3><strong>Update product</strong></h3>
 	<form action="index.php?op=edit" method="post" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="part_number">ID Hidden here: </label>
@@ -30,7 +32,7 @@ include_once "header.php"; ?>
 		</div>
 		<div class="form-group">
 			<label for="image">Image: </label>
-			<img class="img-responsive" src="product_images/<?php echo $product->image; ?>">
+			<img class="img-responsive" src="product_images/<?php echo $product->image; ?>" width="400">
 			<input type="file" name="imagefile"  id="image"  >
 		</div>
 		<div class="form-group">
@@ -51,8 +53,9 @@ include_once "header.php"; ?>
 		</div>
 
 		<input type="hidden" name="btn-save-updates" value="1">
-		<button type="submit" class="btn btn-success">Update</button>
-		<a class="btn btn-default" href="index.php">Back</a>
+		<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save"></span>Save</button>
+		<a class="btn btn-default" href="index.php?op=list">Back</a>
+
 	</form>
 </div>
 <?php include_once "footer.php";?>

@@ -1,22 +1,10 @@
-<!DOCTYPE HTML>
-<html lang="en">
-	<head>
-
-		<meta charset="utf-8">
- 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
- 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<!-- Bootstrap -->
-	    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-		<title>View Product Details</title>
-	</head>
-
-	<body>
-		<div class="container">
-			<!-- <div class="span10 offset 1"> -->
+<?php
+include_once "header.php";
+include_once "navbar.php"
+?>
+<div class="container">
 			<h3><strong>View Product Details</strong></h3>
-			<table class="table table-bordered">
+			<table class="table table-bordered table-responsive">
 				<thead>
   				<tr>
 					<th>Item</th>
@@ -38,7 +26,7 @@
 					</tr>
 					<tr>
         				<td>Image :</td>
-        				<td><img class="img-responsive" src="product_images/<?php echo $product->image; ?>"></td>
+        				<td><img class="img-responsive" src="product_images/<?php echo $product->image; ?>" width="400"></td>
         			</tr>
       				<tr>
 						<td>Stock Quantity :</td>
@@ -58,17 +46,11 @@
       				</tr>
     			</tbody>
   			</table>
-			<!-- <ul class="list-group">
-				<li class="list-group-item">id <?php echo $product->id; ?><span class="badge">12</span></li>
-				<li class="list-group-item">Product Number <?php echo $product->part_number; ?> <span class="badge">5</span></li>
-				<li class="list-group-item">Warnings <span class="badge">3</span></li>
-			</ul> -->
+			<a class="btn btn-default" href="index.php?op=list">Back</a>
+</div>
 
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.min.js"></script>
-	</body>
-</html>
+		<?php
+		include_once "footer.php";
+		?>
 

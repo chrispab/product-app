@@ -43,36 +43,6 @@ class ProductsService extends ProductsGateway {
 		return $this->selectById($id);
 	}
 
-	private function validateProductParams($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate) {
-		echo "<br> ********   validating prod params";
-		$errors = array();
-
-		if ( !isset($part_number) || empty($part_number) ) {
-		    $errors[] = 'Part Number is required';
-		}
-		if ( !isset($description) || empty($description) ) {
-		    $errors[] = 'Description is required';
-		}
-		if ( !isset($stock_quantity) || empty($stock_quantity) ) {
-		    $errors[] = 'Stock Level is required';
-		}
-		if ( !isset($cost_price) || empty($cost_price) ) {
-		    $errors[] = 'Cost Price is required';
-		}
-		if ( !isset($selling_price) || empty($selling_price) ) {
-		    $errors[] = 'Selling Price is required';
-		}
-		if ( !isset($vat_rate) || empty($vat_rate) ) {
-		    $errors[] = 'VAT Rate is required';
-		}
-		if ( !isset($image) || empty($image) ) {
-		    $errors[] = 'An Image is required';
-		}
-		if (empty($errors)) {
-			return;
-		}
-		throw new ValidationException($errors);
-	}
 
 	public function createNewProduct($product) {
 		//echo "<br> ********   in createnew product  pn= " . $part_number;
@@ -108,41 +78,6 @@ class ProductsService extends ProductsGateway {
 		$p = $this->getProduct($id);
 		$image = $p->image;
 		return $image;
-	}
-
-
-	private function validateImageToStore($image){
-				$uploadOk = 1;//start as ok
-				$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-			    $check = getimagesize($_FILES["image"]["tmp_name"]);
-			    if($check !== false) {
-			        echo "File is an image - " . $check["mime"] . ".";
-			        $uploadOk = 1;
-			    } else {
-			        $errors[] = "File is not an image.";
-			        $uploadOk = 0;
-			    }
-				// Check if file already exists
-				if (file_exists($target_file)) {
-				    $errors[] = "Sorry, file already exists.";
-				    $uploadOk = 0;
-				}
-				// Check file size
-				if ($_FILES["image"]["size"] > 500000) {
-				    $errors[] = "Sorry, your file is too large.";
-				    $uploadOk = 0;
-				}
-				// Allow specific file formats
-				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-				&& $imageFileType != "gif" ) {
-				    $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-				    $uploadOk = 0;
-				}
-				// Check if $uploadOk, is set to 0 by an error
-				if ($uploadOk == 0) {
-				    $errors[] = "Sorry, your file was not uploaded.";
-				// if everything is ok, try to upload file
-				}
 	}
 
 

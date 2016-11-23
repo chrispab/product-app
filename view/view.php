@@ -46,7 +46,7 @@ include_once "navbar.php"
       				</tr>
     			</tbody>
   			</table>
-			<a class="btn btn-default" href="index.php?op=list">Back</a>
+			<a class="btn btn-success" href="index.php?op=list">Back</a>
 </div>
 
 

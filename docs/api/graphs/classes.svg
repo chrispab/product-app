@@ -13,30 +13,35 @@
 <path fill="none" stroke="gray" d="M20,-44C20,-44 490,-44 490,-44 496,-44 502,-50 502,-56 502,-56 502,-266 502,-266 502,-272 496,-278 490,-278 490,-278 20,-278 20,-278 14,-278 8,-272 8,-266 8,-266 8,-56 8,-56 8,-50 14,-44 20,-44"/>
 <text text-anchor="middle" x="255" y="-265.2" font-family="Times,serif" font-size="11.00" fill="gray">Global</text>
 </g>
-<!-- \\ProductsController -->
-<g id="node1" class="node"><title>\\ProductsController</title>
-<polygon fill="none" stroke="black" points="490.5,-250 352.5,-250 352.5,-214 490.5,-214 490.5,-250"/>
-<text text-anchor="middle" x="421.5" y="-229.2" font-family="Courier,monospace" font-size="11.00">ProductsController</text>
-</g>
 <!-- \\ProductsGateway -->
-<g id="node2" class="node"><title>\\ProductsGateway</title>
-<polygon fill="none" stroke="black" points="277,-196 159,-196 159,-160 277,-160 277,-196"/>
-<text text-anchor="middle" x="218" y="-175.2" font-family="Courier,monospace" font-size="11.00">ProductsGateway</text>
+<g id="node1" class="node"><title>\\ProductsGateway</title>
+<polygon fill="none" stroke="black" points="277,-250 159,-250 159,-214 277,-214 277,-250"/>
+<text text-anchor="middle" x="218" y="-229.2" font-family="Courier,monospace" font-size="11.00">ProductsGateway</text>
 </g>
 <!-- \\Database -->
-<g id="node6" class="node"><title>\\Database</title>
-<polygon fill="none" stroke="black" points="87,-196 16,-196 16,-160 87,-160 87,-196"/>
-<text text-anchor="middle" x="51.5" y="-175.2" font-family="Courier,monospace" font-size="11.00">Database</text>
+<g id="node3" class="node"><title>\\Database</title>
+<polygon fill="none" stroke="black" points="87,-250 16,-250 16,-214 87,-214 87,-250"/>
+<text text-anchor="middle" x="51.5" y="-229.2" font-family="Courier,monospace" font-size="11.00">Database</text>
 </g>
 <!-- \\ProductsGateway&#45;&gt;\\Database -->
 <g id="edge1" class="edge"><title>\\ProductsGateway&#45;&gt;\\Database</title>
-<path fill="none" stroke="black" d="M158.54,-178C138.437,-178 116.26,-178 97.4059,-178"/>
-<polygon fill="none" stroke="black" points="97.3077,-174.5 87.3077,-178 97.3076,-181.5 97.3077,-174.5"/>
+<path fill="none" stroke="black" d="M158.54,-232C138.437,-232 116.26,-232 97.4059,-232"/>
+<polygon fill="none" stroke="black" points="97.3077,-228.5 87.3077,-232 97.3076,-235.5 97.3077,-228.5"/>
+</g>
+<!-- \\ProductsService -->
+<g id="node2" class="node"><title>\\ProductsService</title>
+<polygon fill="none" stroke="black" points="480.5,-250 362.5,-250 362.5,-214 480.5,-214 480.5,-250"/>
+<text text-anchor="middle" x="421.5" y="-229.2" font-family="Courier,monospace" font-size="11.00">ProductsService</text>
+</g>
+<!-- \\ProductsService&#45;&gt;\\ProductsGateway -->
+<g id="edge2" class="edge"><title>\\ProductsService&#45;&gt;\\ProductsGateway</title>
+<path fill="none" stroke="black" d="M362.488,-232C339.09,-232 311.917,-232 287.551,-232"/>
+<polygon fill="none" stroke="black" points="287.3,-228.5 277.3,-232 287.3,-235.5 287.3,-228.5"/>
 </g>
 <!-- \\ValidationException -->
-<g id="node3" class="node"><title>\\ValidationException</title>
-<polygon fill="none" stroke="black" points="494,-142 349,-142 349,-106 494,-106 494,-142"/>
-<text text-anchor="middle" x="421.5" y="-121.2" font-family="Courier,monospace" font-size="11.00">ValidationException</text>
+<g id="node4" class="node"><title>\\ValidationException</title>
+<polygon fill="none" stroke="black" points="494,-196 349,-196 349,-160 494,-160 494,-196"/>
+<text text-anchor="middle" x="421.5" y="-175.2" font-family="Courier,monospace" font-size="11.00">ValidationException</text>
 </g>
 <!-- \\Exception -->
 <g id="node7" class="node"><title>\\Exception</title>
@@ -44,24 +49,19 @@
 <text text-anchor="middle" x="218" y="-14.3" font-family="Times,serif" font-size="14.00" fill="gray">xception</text>
 </g>
 <!-- \\ValidationException&#45;&gt;\\Exception -->
-<g id="edge2" class="edge"><title>\\ValidationException&#45;&gt;\\Exception</title>
-<path fill="none" stroke="black" d="M366.952,-105.874C360.768,-103.171 354.657,-100.204 349,-97 313.487,-76.8852 312.498,-60.141 277,-40 273.312,-37.9074 269.386,-35.938 265.383,-34.1035"/>
-<polygon fill="none" stroke="black" points="266.548,-30.7951 255.978,-30.0733 263.791,-37.2292 266.548,-30.7951"/>
-</g>
-<!-- \\ProductsService -->
-<g id="node4" class="node"><title>\\ProductsService</title>
-<polygon fill="none" stroke="black" points="480.5,-196 362.5,-196 362.5,-160 480.5,-160 480.5,-196"/>
-<text text-anchor="middle" x="421.5" y="-175.2" font-family="Courier,monospace" font-size="11.00">ProductsService</text>
-</g>
-<!-- \\ProductsService&#45;&gt;\\ProductsGateway -->
-<g id="edge3" class="edge"><title>\\ProductsService&#45;&gt;\\ProductsGateway</title>
-<path fill="none" stroke="black" d="M362.488,-178C339.09,-178 311.917,-178 287.551,-178"/>
-<polygon fill="none" stroke="black" points="287.3,-174.5 277.3,-178 287.3,-181.5 287.3,-174.5"/>
+<g id="edge3" class="edge"><title>\\ValidationException&#45;&gt;\\Exception</title>
+<path fill="none" stroke="black" d="M362.518,-159.884C357.72,-157.279 353.133,-154.33 349,-151 303.211,-114.107 322.762,-76.9272 277,-40 274.061,-37.6287 270.84,-35.4943 267.468,-33.5763"/>
+<polygon fill="none" stroke="black" points="268.792,-30.3256 258.281,-28.9909 265.666,-36.5887 268.792,-30.3256"/>
 </g>
 <!-- \\Product -->
 <g id="node5" class="node"><title>\\Product</title>
-<polygon fill="none" stroke="black" points="453.5,-88 389.5,-88 389.5,-52 453.5,-52 453.5,-88"/>
-<text text-anchor="middle" x="421.5" y="-67.2" font-family="Courier,monospace" font-size="11.00">Product</text>
+<polygon fill="none" stroke="black" points="453.5,-142 389.5,-142 389.5,-106 453.5,-106 453.5,-142"/>
+<text text-anchor="middle" x="421.5" y="-121.2" font-family="Courier,monospace" font-size="11.00">Product</text>
+</g>
+<!-- \\ProductsController -->
+<g id="node6" class="node"><title>\\ProductsController</title>
+<polygon fill="none" stroke="black" points="490.5,-88 352.5,-88 352.5,-52 490.5,-52 490.5,-88"/>
+<text text-anchor="middle" x="421.5" y="-67.2" font-family="Courier,monospace" font-size="11.00">ProductsController</text>
 </g>
 </g>
 </svg>
