@@ -90,13 +90,17 @@ class ProductsController
 			$product->getPostParams();
 			$errors = $product->validateProductParams();
 			if (!$errors['errs_count']) {
-				//validate image HEREEREEEREREERE**********
 				//only do following if all parama ok
 				$this->productsService->createNewProduct($product);
 				$this->productsService->storeImage($product->image);	//upload file
-
+				?>
+					<script>
+					    alert('Successfully Created ...');
+					    window.location.href='index.php?op=list'
+					</script>
+				<?php
 				//prod created so alert user all OK
-				$this->redirect('index.php?op=list');//all done go to start
+				//$this->redirect('index.php?op=list');//all done go to start
 			}
 		}
 		$this->renderView('create.php',$product,$errors);
@@ -145,11 +149,11 @@ class ProductsController
 				?>
 					<script>
 					    alert('Successfully Updated ...');
-					    window.location.href='index.php';
+					    window.location.href='index.php?op=list'
 					</script>
 				<?php
 
-				$this->redirect('index.php?op=list');
+				//$this->redirect('index.php?op=list');
 			}
 		}
 		else { //no update form submitted - first call to update form var vals
