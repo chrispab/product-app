@@ -1,5 +1,7 @@
 # product-app
 
+*note: this readme is best viewed on github: https://github.com/chrispab/product-app*
+
 ## Description
 A primitive MVC(P) PHP CRUD application with Bootstrap.
 
