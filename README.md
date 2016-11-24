@@ -4,9 +4,7 @@
 A primitive MVC(P) PHP CRUD application with Bootstrap.
 
 ### Application spec
-We need an application to manage a product inventory. A product consists  
-of a part number, description, image, stock quantity, cost price,  
-selling price, vat rate.
+An application to manage a product inventory. A product consists of a part number, description, image, stock quantity, cost price, selling price, vat rate.
 
 #### The application should have interfaces for:
 * product creation
@@ -15,13 +13,13 @@ selling price, vat rate.
 * product list report
 
 ### Constraints
-* Build and supply the above as a PHP application.
-* The database can be MySQL or PostgreSQL
+* PHP application.
+* The database can be MySQL or PostgreSQL - chose MySQL
 * The backend should use MVC.
 * The frontend should use the Bootstrap framework.
 * The application will run under Apache on a Linux environment.
 * The application should NOT use an off the shelf MVC framework.
-* Include a read.me file with instructions on how to install the application and database.
+* Include a read.me file (this file) with instructions on how to install the application and database.
 
 ## Installation:
 ### Prerequisites:
@@ -40,8 +38,7 @@ note: Should work on ubuntu 14.04 and above with these directions.
 6. To setup an Apache virtualhost for that folder:
 
 Create a  file: /etc/apache2/sites-available/product_app.conf and use the following contect (modified to match your paths)
-e.g to create and edit:
-`sudo nano etc/apache2/sites-available/myiot.conf`
+e.g to create and edit: in the terminal: `sudo nano etc/apache2/sites-available/product_app.conf`
 7. enter the following in the file, edit paths to suit your folder setup.
 ```
 <VirtualHost *:80>
@@ -60,29 +57,26 @@ CustomLog /home/uda/sites/product_app/access.log combined
 **Plese replace the path part "/home/uda/sites" in the above code to correspond with where you placed the "product_app" folder earlier.**
 
 8. Next you need to enable the new site and restart Apache.
-9. enable new site conf on server
-`sudo a2ensite product_app.conf`
+9. enable new site conf on server, in the terminal: `sudo a2ensite product_app.conf`
 
-10. restart apache on server
-`sudo service apache2 restart`
+10. restart apache on server, in the terminal: `sudo service apache2 restart`
 
-11. add site to local hosts on client;
-`sudo nano /etc/hosts`
-12. add the line and save - `127.0.0.1    products.app`
+11. add site to local hosts on client, to edit in the terminal: `sudo nano /etc/hosts`
+12. add the line, and save - `127.0.0.1    products.app`
 
 7. On your client browser enter: http://products.app
 
-If you get a blank screen, you may need to give check you have suitable read-write permissions for your web group
+If you get a blank screen, you may need to give check you have suitable read-write permissions for your web group on the app folder.
 
-on github: https://github.com/chrispab/product-app
+###### Notes:
+source on github: https://github.com/chrispab/product-app
 
 ###### todo:
-improve form data validation
-complete PHPDoc data
-Complete PHPUnit Tests
-Improve error handling
+improve form data validation  
+complete PHPDoc data  
+Complete upload PHPUnit Tests  
+Improve error handling  
+Re-Style UI
 
 
 READ.ME/README.md
-for: Product_app
-By:C.Battisson
