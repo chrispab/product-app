@@ -12,12 +12,13 @@ class Product {
 	public function __construct() {
 	}
 
-    private function clean_input($data) {
+    public function clean_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
     }
+
     public function getPostParams() {
         $this->id = isset($_POST['id']) ? trim($_POST['id']) : null;
         //$this->id = $this->clean_input($_POST['id']);// ? trim($_POST['id']) : null;
@@ -30,19 +31,8 @@ class Product {
         $this->vat_rate = $this->clean_input($_POST['vat_rate']); //  ? trim($_POST['vat_rate'])  : null;
     }
 
-	// public function getPostParams() {
-    //     $this->id = isset($_POST['id']) ? trim($_POST['id']) : null;
-    //     $this->part_number = isset($_POST['part_number']) ? trim($_POST['part_number']) : null;
-    //     $this->description = isset($_POST['description'])  ? trim($_POST['description'])  : null;
-    //     $this->image = isset($_FILES["imagefile"]["name"]) ? trim($_FILES["imagefile"]["name"]) : null;
-    //     $this->stock_quantity = isset($_POST['stock_quantity'])  ? trim($_POST['stock_quantity'])  : null;
-    //     $this->cost_price = isset($_POST['cost_price'])  ? trim($_POST['cost_price'])  : null;
-    //     $this->selling_price = isset($_POST['selling_price'])  ? trim($_POST['selling_price'])  : null;
-    //     $this->vat_rate = isset($_POST['vat_rate'])  ? trim($_POST['vat_rate'])  : null;
-	// }
 
     public function validateProductParams() {
-		//echo "<br> ********   validating prod params in product";
         //clear error array
         $errors = array("part_number_err"=>"",
 		 				"description_err"=>"",
@@ -58,8 +48,6 @@ class Product {
 		if ( empty($this->part_number) ) {
 		    $errors['part_number_err'] = 'Part Number is required';
 		}
-
-        //var_dump("+++++++" . $this->description . "++++++++++++++++++++++");
 
 		if ( strlen($this->description)==0 ) {
 		    $errors['description_err'] = 'Description is required';
@@ -86,7 +74,7 @@ class Product {
             $errs++;
 		}
 		if ( empty($this->selling_price) ) {
-		    $errors['selling_price_err'] = 'Cost Price is required';
+		    $errors['selling_price_err'] = 'Selling Price is required';
             $errs++;
 		}
         if ( !is_numeric($this->selling_price) ) {
@@ -101,9 +89,6 @@ class Product {
 		    $errors['vat_rate_err'] = 'VAT Rate must be a number';
             $errs++;
 		}
-		// if ( !isset($image) || empty($image) ) {
-		//     $errors[] = 'An Image is required';
-		// }
         $errors['errs_count'] = $errs;
 		return ($errors);
 	}
@@ -121,9 +106,7 @@ class Product {
 
             }
 
-
             $target_file = $target_dir . basename($_FILES["imagefile"]["name"]);
-
     		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
             $check = getimagesize($_FILES["imagefile"]["tmp_name"]);
@@ -131,33 +114,25 @@ class Product {
     	        echo "File is an image - " . $check["mime"] . ".";
     	        $uploadOk = 1;
     	    } else {
-    	        $errors[] = "File is not an image.";
+    	        $errors['image_err'] = "File is not an image.";
     	        $uploadOk = 0;
     	    }
     		// Check if file already exists
     		if (file_exists($target_file)) {
-    		    $errors[] = "Sorry, file already exists.";
+    		    $errors['image_err'] = "Sorry, file already exists.";
     		    $uploadOk = 0;
     		}
     		// Check file size
     		if ($_FILES["imagefile"]["size"] > 500000) {
-    		    $errors[] = "Sorry, your file is too large.";
+    		    $errors['image_err'] = "Sorry, your file is too large.";
     		    $uploadOk = 0;
     		}
-    		// Allow specific file formats
+    		// Allow only specific file formats
     		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     		&& $imageFileType != "gif" ) {
-    		    $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    		    $errors['image_err'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     		    $uploadOk = 0;
-    		}
-    		// Check if $uploadOk, is set to 0 by an error
-    		if ($uploadOk == 0) {
-    		    $errors[] = "Sorry, your file was not uploaded.";
-    		// if everything is ok, try to upload file
     		}
     		return $uploadOk;
     	}
-
-
-
 }

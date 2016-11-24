@@ -10,9 +10,9 @@
         syntaxCheck="false"
         colors="true">
     <testsuites>
-        <testsuite name="HelloWorld Test Suite">
+        <testsuite name="Product App Test Suite">
             <directory>./tests/</directory>
-            <file>HelloWorldTest.php</file>
+            <file>ProductsControllerTest.php</file>
         </testsuite>
     </testsuites>
     <php>

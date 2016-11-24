@@ -1,6 +1,4 @@
 <?php
-#$fp = (__DIR__);
-#echo $fp;
 require_once 'Product.php';
 require_once 'ProductsGateway.php';
 require_once 'ValidationException.php';
@@ -17,8 +15,7 @@ class ProductsService extends ProductsGateway {
 	}
 
 	public function getAllProducts($orderby) {
-		//echo "<br> ********   in getallprods";
-		try 		{
+		try {
 			self::connect();
 			$result = $this->selectAll($orderby);
 			self::disconnect();
@@ -45,8 +42,6 @@ class ProductsService extends ProductsGateway {
 
 
 	public function createNewProduct($product) {
-		//echo "<br> ********   in createnew product  pn= " . $part_number;
-		//die();
 
 		try {
 			self::connect();

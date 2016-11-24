@@ -19,7 +19,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li ><a href="/"></a></li>
-                <li><a href="index.php?op=list">All Products</a></li>
+                <li><a href="index.php?op=list">List All Products</a></li>
                 <li><a href="index.php?op=new">Create New Product</a></li>
             </ul>
         </div>
