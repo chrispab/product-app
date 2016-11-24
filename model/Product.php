@@ -1,4 +1,7 @@
 <?php
+/**
+ * Product class represents product
+ */
 class Product {
     public $id = NULL;
     public $part_number 	= NULL;
@@ -12,13 +15,19 @@ class Product {
 	public function __construct() {
 	}
 
+/**
+ *
+ */
     public function clean_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
     }
-
+    
+    /**
+     *
+     */
     public function getPostParams() {
         $this->id = isset($_POST['id']) ? trim($_POST['id']) : null;
         //$this->id = $this->clean_input($_POST['id']);// ? trim($_POST['id']) : null;
@@ -31,7 +40,9 @@ class Product {
         $this->vat_rate = $this->clean_input($_POST['vat_rate']); //  ? trim($_POST['vat_rate'])  : null;
     }
 
-
+    /**
+     *
+     */
     public function validateProductParams() {
         //clear error array
         $errors = array("part_number_err"=>"",
@@ -92,7 +103,9 @@ class Product {
         $errors['errs_count'] = $errs;
 		return ($errors);
 	}
-
+    /**
+     *
+     */
     	private function validateImageToStore($imagefile, &$errors){
     		$uploadOk = 1;//start as ok
             $target_dir = "product_images/";

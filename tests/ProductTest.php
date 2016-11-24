@@ -1,6 +1,7 @@
 <?php
 
-include_once '/home/uda/sites/products_app/model/Product.php';
+//include_once '/home/uda/sites/products_app/model/Product.php';
+use model\Product;
 use PHPUnit\Framework\TestCase;
 
 class ProductTest extends TestCase

@@ -1,10 +1,25 @@
 # product-app
 
+##Description
+A primitive MVC(P) PHP application
+
+Application	spec
+We need	an application to manage a product inventory. A	product	consists of	a part
+number,	description, image, stock quantity, cost price, selling	price, vat rate.
+The	application	should have	interfaces for:
+• product creation
+• product amendments
+• product deletion
+• product list report
+
+
+
+
 README.TXT
 for: Product_app
 By:C.Battisson
 
-Installation:
+##Installation:
 
 Unzip into dir
 Create DB with SQL query
