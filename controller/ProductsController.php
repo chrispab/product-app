@@ -8,8 +8,6 @@ require_once (__DIR__. '/../model/ProductsService.php');
  *
  *
  */
-
-
 class ProductsController
 {
 	private $productsService = null;
@@ -124,9 +122,7 @@ class ProductsController
 	 */
 	public function updateProduct() {
 
-		// //clear error array
-
-        $errors = array("part_number_err"=>"",
+	    $errors = array("part_number_err"=>"",
 		 				"description_err"=>"",
 						"image_err"=>"",
 						"stock_quantity_err"=>"",
@@ -146,7 +142,6 @@ class ProductsController
 			var_dump($product);
 			if ( (!$errors['errs_count']) || ( ($errors['errs_count']==1) && ($errors['image_err']) ) ) {//no errs so update db record
                 //get current image if exists
-                //$product->image = $this->productsService->getCurrentImageFileName($product->id);
                 var_dump("+++" . $product->image . "+++");
 				if (!empty($product->image)) { //if new img storeimage
 					$this->productsService->storeImage($product->image);
@@ -164,13 +159,11 @@ class ProductsController
 				</script>
 				<?php
 
-				//$this->redirect('index.php?op=list');
 			}
 		}
 		else { //no update form submitted - first call to update form var vals
 			$id = isset($_GET['id']) ? $_GET['id'] : null;
 			$product = $this->productsService->getProduct($id);
-			//var_dump($product);
 		}
 		$this->renderView('update.php',$product,$errors);
 	}
@@ -187,8 +180,6 @@ class ProductsController
         $product = $this->productsService->getProduct($id);
         $this->renderView('delete.php',$product);
 
-
-
 		if ( isset($_POST['delete-product']) ) { // delete button clicked
 			$this->productsService->deleteProduct($id);
             ?>
@@ -197,33 +188,7 @@ class ProductsController
                 window.location.href='index.php?op=list'
             </script>
             <?php
-			//$this->redirect('index.php?op=list');
 		}
-
-		// $product = $this->productsService->getProduct($id);
-        //
-        // $id = 0;
-        //
-        // if ( !empty($_GET['id'])) {
-        //     $id = $_REQUEST['id'];
-        // }
-        //
-        // if ( !empty($_POST)) {//here if delete butt on delete page pressed
-        //     // keep track post values
-        //     $id = $_POST['id'];
-        //
-        //     // delete data
-        //     $pdo = Database::connect();
-        //     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //     $sql = "DELETE FROM products  WHERE id = ?";
-        //     $q = $pdo->prepare($sql);
-        //     $q->execute(array($id));
-        //     Database::disconnect();
-        //     header("Location: index.php?op=list");
-        //
-        // }
-
-		//$this->renderView('delete.php', $product);
 	}
 
 	/**

@@ -9,7 +9,6 @@ include_once "navbar.php"
 
 	<form method="post" enctype="multipart/form-data" action="index.php?op=new" >
 
-<!-- <?php var_dump($errors); ?> -->
 
 		<div class="form-group">
 			<label for="part_number">Part Number: <?php echo "<i class='text-danger'>* {$errors['part_number_err']}</i>";?> </label>

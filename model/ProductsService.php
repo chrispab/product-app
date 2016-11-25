@@ -9,9 +9,6 @@ class ProductsService extends ProductsGateway {
 	private $productsGateway = null;
 
 	public function __construct() 	{
-		//parent::__construct(); // Call the parent class's constructor
-		//echo "<br> prodservice constructor";
-		//$this->productsGateway = new ProductsGateway();
 	}
 
 	public function getAllProducts($orderby) {
@@ -45,7 +42,6 @@ class ProductsService extends ProductsGateway {
 
 		try {
 			self::connect();
-//			$this->validateProductParams($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate);
 			$result = $this->insert($product->part_number, $product->description, $product->image, $product->stock_quantity, $product->cost_price, $product->selling_price, $product->vat_rate);
 			self::disconnect();
 			return $result;

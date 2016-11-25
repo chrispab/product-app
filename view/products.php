@@ -1,6 +1,4 @@
 <?php
-// set page headers
-$page_title = "New Products Header title2";
 include_once "header.php"; ?>
 
 			<div class="row">

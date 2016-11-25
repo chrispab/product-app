@@ -71,7 +71,7 @@ CustomLog /home/uda/sites/product_app/access.log combined
 7. On your client browser enter: http://products.app
 
 ###### Issues:
-If you get a blank screen, you may need to give check you have suitable read-write permissions for your web group on the app folder.
+If you get a blank screen, you may need to check you have suitable read-write permissions for your web group on the app folder.
 
 ###### Notes:
 source on github: https://github.com/chrispab/product-app

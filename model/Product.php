@@ -24,7 +24,7 @@ class Product {
         $data = htmlspecialchars($data);
         return $data;
     }
-    
+
     /**
      *
      */
@@ -116,7 +116,6 @@ class Product {
                 var_dump($errors);
     	        $uploadOk = 0;
                 return $uploadOk;
-
             }
 
             $target_file = $target_dir . basename($_FILES["imagefile"]["name"]);

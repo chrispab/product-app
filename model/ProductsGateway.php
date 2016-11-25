@@ -6,7 +6,6 @@ class ProductsGateway extends Database {
 	}
 
 	public function selectAll($orderby) {
-		//echo "<br> prodgateway selall";
 		if (!isset($orderby)) {
 			$orderby = 'id';	//default sort order
 		}
@@ -14,7 +13,6 @@ class ProductsGateway extends Database {
 		$pdo = Database::connect();
 		$sql = $pdo->prepare("SELECT * FROM products ORDER BY $orderby ASC");
 		$sql->execute();
-		// $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 		$products = array();
 		while ($obj = $sql->fetch(PDO::FETCH_OBJ)) {
@@ -33,8 +31,6 @@ class ProductsGateway extends Database {
 	}
 
 	public function insert($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate) {
-		echo ("part= ". $part_number);
-		//die();
 
 		$pdo = Database::connect();
 		// set the PDO error mode to exception
@@ -55,19 +51,17 @@ class ProductsGateway extends Database {
 		}
 		try {
 			$result = $sql->execute();
-			echo "<br>New record created successfully";
+			//echo "<br>New record created successfully";
 		}
 		catch(PDOException $e) {
 			echo "Error: " . $e->getMessage();
 		}
-		//var_dump($result);
 	}
 
 	public function edit($id, $part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate) {
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = $pdo->prepare("UPDATE products SET name = ?, email = ?, phone = ? WHERE id = ? LIMIT 1");
-		//$result = $sql->execute(array($name, $email, $mobile, $id));
 		try {
 			$sql = $pdo->prepare("UPDATE products SET part_number = :part_number,
 				 description = :description, image = :image, stock_quantity = :stock_quantity,
@@ -93,7 +87,6 @@ class ProductsGateway extends Database {
 		catch(PDOException $e) {
 			echo "Error: " . $e->getMessage();
 		}
-		//var_dump($result);
 	}
 
 	public function delete($id) {
