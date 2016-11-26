@@ -5,8 +5,6 @@ require_once (__DIR__. '/../model/ProductsService.php');
 /**
  * Primasry file. ProductsController manages primitive static routing
  * and calls CRUD functions to achieve required actions
- *
- *
  */
 class ProductsController
 {

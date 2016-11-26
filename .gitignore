@@ -1,2 +1,4 @@
 /vendor
 /task_docs
+access.log
+error.log

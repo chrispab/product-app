@@ -52,13 +52,6 @@ include_once "navbar.php"
 	</form>
 </div>
 </div>
-<script>
-	$(document).on("click", ".alert", function(e) {
-		bootbox.alert("Product Created", function() {
-			console.log("Alert Callback");
-		});
-	});
-</script>
 
 <?php
 include_once "footer.php";
