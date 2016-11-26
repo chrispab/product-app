@@ -81,6 +81,9 @@ class ProductsController
 	 * @return void
 	 */
 	public function createProduct() {
+
+		//$this->productsService->modalAlert("New Product Created Yay test");
+
 		// //clear error array
         $errors = array("part_number_err"=>"",
 		 				"description_err"=>"",
@@ -100,12 +103,9 @@ class ProductsController
 				//only do following if all parama ok
 				$this->productsService->createNewProduct($product);
 				$this->productsService->storeImage($product->image);	//upload file
-				?>
-					<script>
-					    alert('Successfully Created ...');
-					    window.location.href='index.php?op=list'
-					</script>
-				<?php
+				$this->productsService->modalAlert("New Product Created");
+
+#modal triggered here
 				//prod created so alert user all OK
 				//$this->redirect('index.php?op=list');//all done go to start
 			}
@@ -151,13 +151,8 @@ class ProductsController
 				}
 				//else leave image info as is
 				$this->productsService->updateProduct($product);
-
-				?>
-				<script>
-				    alert('Successfully Updated ...');
-				    window.location.href='index.php?op=list'
-				</script>
-				<?php
+				$this->productsService->modalAlert("Product Updated");
+				$this->redirect('index.php?op=list');//all done go to start
 
 			}
 		}
@@ -176,18 +171,21 @@ class ProductsController
 	 * @return void
 	 */
 	public function deleteProduct() {
-        $id = isset($_GET['id']) ? $_GET['id'] : null;
-        $product = $this->productsService->getProduct($id);
-        $this->renderView('delete.php',$product);
+		//$this->productsService->modalAlert("Product Deleted");
 
-		if ( isset($_POST['delete-product']) ) { // delete button clicked
+		//delete button clicked
+		///delete confirmed
+		$id = isset($_GET['id']) ? $_GET['id'] : null;
+
+		if ( isset($_POST['delete-product']) ) { // delete button clicked on delete confirm form
 			$this->productsService->deleteProduct($id);
-            ?>
-            <script>
-                alert('Successfully Deleted ...');
-                window.location.href='index.php?op=list'
-            </script>
-            <?php
+			$this->productsService->modalAlert("Product Deleted");
+			//and also does redirect to main listing of products
+			//$this->redirect('index.php?op=list');//all done go to start
+		}
+		else  {	//show delete confirm page
+			$product = $this->productsService->getProduct($id);
+			$this->renderView('delete.php',$product);
 		}
 	}
 

@@ -4,6 +4,7 @@ include_once "navbar.php"
 ?>
 
 <div class="container">
+	 <p>Content here. <a class="alert" href=#>Alert!</a></p>
 	<h3><strong>Add a new product</strong></h3>
 	<h5 class='text-danger'><strong>* Required Information</strong></h5>
 
@@ -20,7 +21,12 @@ include_once "navbar.php"
 		</div>
 		<div class="form-group">
 			<label for="image">Image: <?php echo "<i class='text-danger'>* {$errors['image_err']}</i>";?> </label>
-			<img class="img-responsive" src="product_images/<?php echo $product->image; ?>">
+			<?php
+			if (empty($product->image)) {
+				$product->image = "placeholderimage.jpg";
+			}
+			?>
+			<img class="img-responsive" src="product_images/<?php echo $product->image; ?>" >
 			<input type="file" name="imagefile"  id="image"  >
 		</div>
 		<div class="form-group">
@@ -46,6 +52,13 @@ include_once "navbar.php"
 	</form>
 </div>
 </div>
+<script>
+	$(document).on("click", ".alert", function(e) {
+		bootbox.alert("Product Created", function() {
+			console.log("Alert Callback");
+		});
+	});
+</script>
 
 <?php
 include_once "footer.php";

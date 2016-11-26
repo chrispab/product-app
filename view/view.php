@@ -47,6 +47,8 @@ include_once "navbar.php"
     			</tbody>
   			</table>
 			<a class="btn btn-success" href="index.php?op=edit&id=<?php echo $product->id; ?>">Update</a>
+			<a class="btn btn-danger" href="index.php?op=delete&id=<?php echo $product->id; ?>">Delete</a>
+
 			<a class="btn btn-success" href="index.php?op=list">Back</a>
 </div>
 

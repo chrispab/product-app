@@ -8,7 +8,7 @@ include_once "navbar.php"
                 <h3>Delete a Product</h3>
             </div>
 
-        <form  action="" method="post">
+        <form  action="index.php?op=delete&id=<?php echo $product->id;?>" " method="post">
           <input type="hidden" name="id" value="<?php echo $product->id;?>"/>
           <p class="alert alert-error">Are you sure you wish to delete this product?</p>
           <p class="alert alert-error">Part Number: <?php echo "<i class='text-danger'>* {$product->part_number}</i>";?> </p>
