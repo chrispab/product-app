@@ -44,7 +44,7 @@ class ProductsGateway extends Database {
 			$sql->bindParam(':cost_price', $cost_price);
 			$sql->bindParam(':selling_price', $selling_price);
 			$sql->bindParam(':vat_rate', $vat_rate);
-			echo "<br> ********   in gateway statement prepared<br>";
+			//echo "<br> ********   in gateway statement prepared<br>";
 		}
 		catch(PDOException $e) {
 			echo "Error: " . $e->getMessage();
@@ -75,14 +75,14 @@ class ProductsGateway extends Database {
 			$sql->bindParam(':cost_price', $cost_price);
 			$sql->bindParam(':selling_price', $selling_price);
 			$sql->bindParam(':vat_rate', $vat_rate);
-			echo "<br> ********   in edit pg<br>";
+			//echo "<br> ********   in edit pg<br>";
 		}
 		catch(PDOException $e) {
 			echo "Error: " . $e->getMessage();
 		}
 		try {
 			$result = $sql->execute();
-			echo "<br>New record created successfully";
+			//echo "<br>New record created successfully";
 		}
 		catch(PDOException $e) {
 			echo "Error: " . $e->getMessage();

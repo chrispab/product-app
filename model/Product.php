@@ -123,7 +123,7 @@ class Product {
 
             $check = getimagesize($_FILES["imagefile"]["tmp_name"]);
     	    if($check !== false) {
-    	        echo "File is an image - " . $check["mime"] . ".";
+    	        //echo "File is an image - " . $check["mime"] . ".";
     	        $uploadOk = 1;
     	    } else {
     	        $errors['image_err'] = "File is not an image.";

@@ -20,8 +20,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 
 <style>
-
-
 .table-responsive
 {
     overflow-x: auto;
@@ -32,12 +30,11 @@
 	border-left: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 }
-		</style>
-		<title>Product App</title>
+</style>
+<title>Product App</title>
 
-	</head>
-
-	<body>
+</head>
+<body>
 
 <?php
 ?>

@@ -23,7 +23,7 @@ An application to manage a product inventory. A product consists of a part numbe
 
 
 ## Installation:
-**Prerequisites/Assumptions:**
+**Prerequisites:**
 1. Installation on local machine with Linux (developed on ubuntu server 16.04)
 2. MySQL installed.
 3. Apache installed.
@@ -37,25 +37,26 @@ An application to manage a product inventory. A product consists of a part numbe
 4. Create a new entry into apache sites-available:
 5. If you look inside the products_app directory, there is a folder called public. This is the “public_html” of the project. 6. To setup an Apache virtualhost for that folder:
 
-6. Create a  file: /etc/apache2/sites-available/products_app.conf and use the following contect (modified to match your paths)  
+6. Create a  file: /etc/apache2/sites-available/products_app.conf and use the following content (modified to match your paths)  
 e.g to create and edit: in the terminal: `sudo nano etc/apache2/sites-available/products_app.conf`  
 
 7. Enter the following in the file, edit paths to suit your folder setup.
-```
-<VirtualHost *:80>
-<Directory /home/uda/sites/products_app>
-  Options Indexes FollowSymLinks
-  AllowOverride All
-  Require all granted
-</Directory>
-ServerName products.app
-ServerAdmin webmaster@localhost
-DocumentRoot /home/uda/sites/products_app/public
-ErrorLog /home/uda/sites/products_app/error.log
-CustomLog /home/uda/sites/products_app/access.log combined
-</VirtualHost>
-```
-**Plese replace the path part "/home/uda/sites" in the above code to correspond with where you placed the "product_app" folder earlier.**
+
+    ```
+    <VirtualHost *:80>
+    <Directory /home/uda/sites/products_app>
+      Options Indexes FollowSymLinks
+      AllowOverride All
+      Require all granted
+    </Directory>
+    ServerName products.app
+    ServerAdmin webmaster@localhost
+    DocumentRoot /home/uda/sites/products_app/public
+    ErrorLog /home/uda/sites/products_app/error.log
+    CustomLog /home/uda/sites/products_app/access.log combined
+    </VirtualHost>
+    ```
+**Plese replace the path part "/home/uda/sites" in the above code to correspond with where you placed the "products_app" folder earlier.**
 
 8. Next you need to enable the new site and restart Apache.
 9. Enable new site conf on server, in the terminal: `sudo a2ensite products_app.conf`

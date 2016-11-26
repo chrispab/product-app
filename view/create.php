@@ -4,27 +4,22 @@ include_once "navbar.php"
 ?>
 
 <div class="container">
-	 <p>Content here. <a class="alert" href=#>Alert!</a></p>
 	<h3><strong>Add a new product</strong></h3>
 	<h5 class='text-danger'><strong>* Required Information</strong></h5>
 
 	<form method="post" enctype="multipart/form-data" action="index.php?op=new" >
-
-
 		<div class="form-group">
 			<label for="part_number">Part Number: <?php echo "<i class='text-danger'>* {$errors['part_number_err']}</i>";?> </label>
 	        <input type="text" class="form-control" name="part_number" id="part_number" value="<?php echo $product->part_number; ?>"  placeholder="Part Number" required autofocus>
 		</div>
 		<div class="form-group">
 			<label for="description">Description: <?php echo "<i class='text-danger'>* {$errors['description_err']}</i>";?> </label>
-	        <textarea class="form-control" name="description" rows="10" cols="30" id="description"> <?php echo $product->description; ?> </textarea>
+	        <textarea class="form-control" name="description" rows="5" cols="30" id="description"> <?php echo $product->description; ?> </textarea>
 		</div>
 		<div class="form-group">
 			<label for="image">Image: <?php echo "<i class='text-danger'>* {$errors['image_err']}</i>";?> </label>
 			<?php
-			if (empty($product->image)) {
-				$product->image = "placeholderimage.jpg";
-			}
+				if (empty($product->image)) { $product->image = "placeholderimage.jpg"; }
 			?>
 			<img class="img-responsive" src="product_images/<?php echo $product->image; ?>" >
 			<input type="file" name="imagefile"  id="image"  >
