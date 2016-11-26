@@ -9,7 +9,7 @@ include_once "navbar.php"
 
 	<form action="index.php?op=edit" method="post" enctype="multipart/form-data">
 		<div class="form-group">
-			<label for="part_number">ID Hidden here: </label>
+			<!-- <label for="part_number">ID Hidden here: </label> -->
 	        <input type="hidden" class="form-control" name="id" id="id" value=<?php echo $product->id; ?> required autofocus>
 		</div>
 		<div class="form-group">
@@ -22,7 +22,6 @@ include_once "navbar.php"
 		</div>
 		<div class="form-group">
 			<label for="image">Image: <?php echo "<i class='text-danger'>* {$errors['image_err']}</i>";?></label>
-
 			<img class="img-responsive" src="product_images/<?php echo $product->image; ?>" width="400">
 			<input type="file" name="imagefile"  id="image"  >
 		</div>
@@ -46,9 +45,7 @@ include_once "navbar.php"
 		<input type="hidden" name="btn-save-updates" value="1">
 		<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save"></span>Save</button>
 		<a class="btn btn-danger" href="index.php?op=delete&id=<?php echo $product->id; ?>">Delete</a>
-
 		<a class="btn btn-default" href="index.php?op=list">Back to list</a>
-
 	</form>
 </div>
 <?php include_once "footer.php";?>

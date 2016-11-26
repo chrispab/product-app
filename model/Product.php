@@ -113,7 +113,7 @@ class Product {
             //check for filename exists
             if (empty($imagefile)) {
                 $errors['image_err'] = "no filname provided";
-                var_dump($errors);
+                //var_dump($errors);
     	        $uploadOk = 0;
                 return $uploadOk;
             }
