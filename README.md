@@ -23,11 +23,12 @@ An application to manage a product inventory. A product consists of a part numbe
 
 
 ## Installation:
-**Prerequisites:**
-1. Installation on local machine with Linux (developed on ubuntu server 16.04)
-2. MySQL installed.
-3. Apache installed.
-4. PHP installed.
+**Prerequisites:**  
+1. Installation on local machine with Linux (developed on ubuntu server 16.04)  
+2. MySQL installed.  
+3. Apache installed.  
+4. PHP installed.  
+
 *note: Should work on ubuntu 14.04 and above with these directions.*
 
 ### Install Steps
@@ -68,8 +69,8 @@ e.g to create and edit: in the terminal: `sudo nano etc/apache2/sites-available/
 13. On your client browser enter: http://products.app
 
 ###### Issues:
-* Internet access must be available for the client browser to enable access to bootstra and JQuery CDNs.  
-* If you get a blank screen, you may need to check you have suitable read-write permissions for your web group on the app folder etc.
+* Internet access must be available for the client browser to enable access to bootstrap, bootbox and JQuery CDNs.  
+* If you get a blank screen, you may need to check you have suitable permissions for your web group on the app folder etc.
 
 ###### Notes:
 source on github: https://github.com/chrispab/product-app

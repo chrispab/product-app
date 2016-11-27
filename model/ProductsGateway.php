@@ -90,7 +90,17 @@ class ProductsGateway extends Database {
 	}
 
 	public function delete($id) {
+
 		$pdo = Database::connect();
+
+		// select image from db to delete
+		$stmt_select = $pdo->prepare('SELECT image FROM products WHERE id =:prod_id');
+		$stmt_select->execute(array(':prod_id'=>$id));
+		$imgRow = $stmt_select->fetch(PDO::FETCH_ASSOC);
+		//del
+		unlink("product_images/".$imgRow['image']);
+
+		//delete db record
 		$sql = $pdo->prepare("DELETE FROM products WHERE id =?");
 		$sql->execute(array($id));
 	}
