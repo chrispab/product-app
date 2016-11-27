@@ -34,10 +34,9 @@ An application to manage a product inventory. A product consists of a part numbe
 1. Unzip  the archive into a new directory "products_app", or one of your choosing.  (or clone repository into it)
 2. Create the database in MySQL by running the  SQL file at 'products_app/db/create_products_db.sql' in the folder created earlier.
 3. Create a user with RW permissions to the  products_app database -  username: myiot password: myiot
-4. Create a new entry into apache sites-available:
-5. If you look inside the products_app directory, there is a folder called public. This is the “public_html” of the project. 6. To setup an Apache virtualhost for that folder:
-
-6. Create a  file: /etc/apache2/sites-available/products_app.conf and use the following content (modified to match your paths)  
+4. Now to create a new entry into apache sites-available:-  
+5. If you look inside the products_app directory, there is a folder called public. This is the “public_html” of the project.  
+6. To setup an Apache virtualhost for that folder, Create a  file:   /etc/apache2/sites-available/products_app.conf and use the following content (modified to match your paths)  
 e.g to create and edit: in the terminal: `sudo nano etc/apache2/sites-available/products_app.conf`  
 
 7. Enter the following in the file, edit paths to suit your folder setup.
@@ -69,7 +68,8 @@ e.g to create and edit: in the terminal: `sudo nano etc/apache2/sites-available/
 13. On your client browser enter: http://products.app
 
 ###### Issues:
-If you get a blank screen, you may need to check you have suitable read-write permissions for your web group on the app folder etc.
+* Internet access must be available for the client browser to enable access to bootstra and JQuery CDNs.  
+* If you get a blank screen, you may need to check you have suitable read-write permissions for your web group on the app folder etc.
 
 ###### Notes:
 source on github: https://github.com/chrispab/product-app
