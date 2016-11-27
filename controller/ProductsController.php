@@ -79,9 +79,6 @@ class ProductsController
 	 * @return void
 	 */
 	public function createProduct() {
-
-		//$this->productsService->modalAlert("New Product Created Yay test");
-
 		// //clear error array
         $errors = array("part_number_err"=>"",
 		 				"description_err"=>"",
@@ -133,24 +130,11 @@ class ProductsController
 		$product = $this->productsService->tempProduct();
 		//if update-product form submitted
 		if (isset($_POST['btn-save-updates'])) {
-			//var_dump($_REQUEST);
 			$product->getPostParams();
 
-			//var_dump( $product);
-
-
 			$errors = $product->validateProductParams();
-			//var_dump($errors);
-			//var_dump($product);
 			if ( (!$errors['errs_count']) || ( ($errors['errs_count']==1) && ($errors['image_err']) ) ) {//no errs so update db record
                 //get current image if exists
-
-				//var_dump("+++" . $product->image . "+++");
-				//var_dump($errors);
-				//var_dump( $product);
-				//echo $this->productsService->getCurrentImageFileName($product->id);
-				//die();
-
 				if (!empty($product->image)) { //if new img storeimage
 					$this->productsService->storeImage($product->image);
 				}	//upload file				}
@@ -160,8 +144,6 @@ class ProductsController
 				//else leave image info as is
 				$this->productsService->updateProduct($product);
 				$this->productsService->modalAlert("Product Updated");
-				//$this->redirect('index.php?op=list');//all done go to start
-
 			}
 		}
 		else { //no update form submitted - first call to update form var vals
