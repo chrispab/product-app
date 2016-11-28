@@ -1,6 +1,6 @@
 <?php
 include "includes/header.php";
-include_once "includes/navbar.php"
+include "includes/navbar.php"
 ?>
 
 <div class="container">

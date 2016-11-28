@@ -1,5 +1,7 @@
 <?php
-include_once "header.php"; ?>
+include "includes/header.php";
+include "includes/navbar.php";
+?>
 
 			<div class="row">
 				<h1><strong>Products app - Product List</strong></h1>
@@ -53,5 +55,5 @@ include_once "header.php"; ?>
 				</table>
 			</div>
 			<?php
-			include_once "footer.php";
+			include "includes/footer.php";
 			?>

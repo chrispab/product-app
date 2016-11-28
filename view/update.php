@@ -1,6 +1,6 @@
 <?php
-include_once "header.php";
-include_once "navbar.php"
+include "includes/header.php";
+include "includes/navbar.php";
 ?>
 
 <div class="container">
@@ -48,4 +48,6 @@ include_once "navbar.php"
 		<a class="btn btn-default" href="index.php?op=list">Back to list</a>
 	</form>
 </div>
-<?php include_once "footer.php";?>
+<?php
+include "includes/footer.php";
+?>

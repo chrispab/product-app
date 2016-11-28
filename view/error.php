@@ -1,6 +1,6 @@
 <?php
-include_once "header.php";
-include_once "navbar.php"
+include "includes/header.php";
+include "includes/navbar.php";
 ?>
 <div>
     <div class="content">
@@ -15,5 +15,5 @@ include_once "navbar.php"
 
 
 <?php
-include_once "footer.php";
+include "includes/footer.php";
 ?>

@@ -107,7 +107,6 @@ class ProductsService extends ProductsGateway {
 
 		include "includes/header.php";
 		?>
-
 		<script>
 			bootbox.alert({
 				message: "<?php echo $message ?>",
@@ -115,7 +114,6 @@ class ProductsService extends ProductsGateway {
 				callback: function(){ window.location.href='index.php?op=list' }
 			});
 		</script>
-
 		<?php
 		include_once "includes/footer.php";
 
