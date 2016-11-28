@@ -6,7 +6,9 @@ include "includes/navbar.php";
 <div class="container">
 	<h1><strong>All Products</strong></h1>
 	<br>
-		<p><a href="index.php?op=new" class="btn btn-success">Add a New Product</a></p>
+		<p><a href="index.php?op=new" class="btn btn-success">
+			<span class="glyphicon glyphicon-plus-sign"></span>
+			Add a New Product</a></p>
 	<?php foreach ($product as $prod) : ?>
 		<div class="row  border">
 	    <div class="col-sm-4 border" >
@@ -33,9 +35,9 @@ include "includes/navbar.php";
 	  	</div>
 		<div class="col-sm-2">
 			<br>
-			<a class="btn btn-info" href="index.php?op=show&id=<?php echo $prod->id; ?>">View</a>
-			<a class="btn btn-success" href="index.php?op=edit&id=<?php echo $prod->id; ?>">Update</a>
-			<a class="btn btn-danger" href="index.php?op=delete&id=<?php echo $prod->id; ?>">Delete</a>
+			<a class="btn btn-info" href="index.php?op=show&id=<?php echo $prod->id; ?>"><span class="glyphicon glyphicon-zoom-in"></span>View</a>
+			<a class="btn btn-success" href="index.php?op=edit&id=<?php echo $prod->id; ?>"><span class="glyphicon glyphicon-pencil">Update</a>
+			<a class="btn btn-danger" href="index.php?op=delete&id=<?php echo $prod->id; ?>"><span class="glyphicon glyphicon-trash"></span>Delete</a>
 			<br><br><br><br>
 		</div>
 	</div>

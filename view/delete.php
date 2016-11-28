@@ -16,7 +16,7 @@ include "includes/navbar.php";
           <div class="form-actions">
               <input type="hidden" name="delete-product" value="1">
               <button type="submit" class="btn btn-danger">Yes</button>
-              <a class="btn" href="index.php?op=list">Cancel</a>
+              <a class="btn btn-success" href="index.php?op=list">Cancel</a>
           </div>
         </form>
     </div>

@@ -44,8 +44,8 @@ include "includes/navbar.php";
 
 		<input type="hidden" name="btn-save-updates" value="1">
 		<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save"></span>Save</button>
-		<a class="btn btn-danger" href="index.php?op=delete&id=<?php echo $product->id; ?>">Delete</a>
-		<a class="btn btn-default" href="index.php?op=list">Back to list</a>
+		<a class="btn btn-danger" href="index.php?op=delete&id=<?php echo $product->id; ?>"><span class="glyphicon glyphicon-remove">Delete</a>
+		<a class="btn btn-default" href="index.php?op=list"><span class="glyphicon glyphicon-step-backward">Back</a>
 	</form>
 </div>
 <?php
