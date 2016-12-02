@@ -2,6 +2,7 @@
 
 class Database
 {
+	//use seperate file for production db strings below
 	private static $dbName 	   = 'products_app';
 	private static $dbHost 	   = 'localhost';
 	private static $dbUsername = 'myiot';
