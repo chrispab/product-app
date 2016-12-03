@@ -8,9 +8,16 @@ class ProductsService extends ProductsGateway {
 
 	private $productsGateway = null;
 
+/**
+ * not used
+ */
 	public function __construct() 	{
 	}
 
+/**
+ * Get all products ordered by param e.g product_name, description,
+ * selling_price etc
+ */
 	public function getAllProducts($orderby) {
 		try {
 			self::connect();
