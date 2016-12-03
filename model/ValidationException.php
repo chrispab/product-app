@@ -1,5 +1,7 @@
 <?php
-
+/**
+ *
+ */
 class ValidationException extends Exception
 {
 	private $errors = null;

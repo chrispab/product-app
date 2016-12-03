@@ -3,7 +3,7 @@ define("BASE_URL", "/products_app/");
 define("ROOT_PATH", $_SERVER["DOCUMENT_ROOT"]);
 require_once (__DIR__. '/../model/ProductsService.php');
 /**
- * Primasry file. ProductsController manages primitive static routing
+ * Primary file. ProductsController manages primitive static routing
  * and calls CRUD functions to achieve required actions
  */
 class ProductsController
@@ -99,10 +99,6 @@ class ProductsController
 				$this->productsService->createNewProduct($product);
 				$this->productsService->storeImage($product->image);	//upload file
 				$this->productsService->modalAlert("New Product Created");
-
-#modal triggered here
-				//prod created so alert user all OK
-				//$this->redirect('index.php?op=list');//all done go to start
 			}
 		}
 		$this->renderView('create.php',$product,$errors);
@@ -170,8 +166,6 @@ class ProductsController
 		if ( isset($_POST['delete-product']) ) { // delete button clicked on delete confirm form
 			$this->productsService->deleteProduct($id);
 			$this->productsService->modalAlert("Product Deleted");
-			//and also does redirect to main listing of products
-			//$this->redirect('index.php?op=list');//all done go to start
 		}
 		else  {	//show delete confirm page
 			$product = $this->productsService->getProduct($id);

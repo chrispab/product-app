@@ -4,7 +4,7 @@ require_once 'ProductsGateway.php';
 require_once 'ValidationException.php';
 
 
-class ProductsService extends ProductsGateway {
+class ProductsModel extends ProductsGateway {
 
 	private $productsGateway = null;
 
