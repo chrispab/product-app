@@ -7,7 +7,7 @@ class Router {
     /**
 	 * Handles requests and routes to correct view and passes controller and model.
 	 *
-	 * @param No params
+	 * @param No params, but proccess the request from the client
 	 *
 	 * @return void
 	 */
