@@ -1,6 +1,6 @@
 <?php
 //define("ROOT_PATH", $_SERVER["DOCUMENT_ROOT"]);
-require_once (__DIR__. '/Router.php');
+require_once ('Router.php');
 
 //echo __DIR__;
 
