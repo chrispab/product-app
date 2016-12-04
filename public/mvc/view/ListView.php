@@ -28,9 +28,9 @@ class ListView
 
         //render template
         echo "listview op";
-        var_dump( $this->model->getAllProducts("id") );
+        //var_dump( $this->model->getAllProducts("id") );
         $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : 'id';
-        $product = $this->model->getAllProducts($orderby);
+        $products = $this->model->getAllProducts($orderby);
         require_once($this->template);
     }
 }
