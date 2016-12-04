@@ -2,7 +2,7 @@
 define("ROOT_PATH", $_SERVER["DOCUMENT_ROOT"]);
 require_once (__DIR__. '/mvc/Router.php');
 
-echo __DIR__;
+//echo __DIR__;
 
 include_once "mvc/Router.php";
 

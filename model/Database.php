@@ -1,6 +1,6 @@
 <?php
 /**
- *
+ * Static singleton class for use througout app
  */
 class Database
 {
@@ -9,9 +9,8 @@ class Database
 	private static $dbHost 	   = 'localhost';
 	private static $dbUsername = 'myiot';
 	private static $dbPassword = 'myiot';
-
 	private static $conn = null;
-	
+
 /**
  *
  */
@@ -22,7 +21,7 @@ class Database
  *
  */
 	public static function connect() {
-		if (null == self::$conn) {
+		if (self::$conn == null) {
 			try {
 				self::$conn =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbPassword);
 			}
