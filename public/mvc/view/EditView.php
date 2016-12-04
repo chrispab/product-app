@@ -67,7 +67,8 @@ class EditView{
 						"errs_count"=>"");
 
 		$product = $this->model->tempProduct();
-		//if update-product form submitted
+
+        //if update-product form submitted
 		if (isset($_POST['btn-save-updates'])) {
 			$product->getPostParams();
 
@@ -82,22 +83,30 @@ class EditView{
 				}
 				//else leave image info as is
 				$this->model->updateProduct($product);
-				$this->model->modalAlert("Product Updated");
+				$this->model->modalAlert("Product Updated");//and redirect
 			}
 		}
 		else { //no update form submitted - first call to update form var vals
-			$id = isset($_GET['id']) ? $_GET['id'] : null;
-			$product = $this->model->getProduct($id);
+            //render template
+            $id = isset($_GET['id']) ? $_GET['id'] : null;
+            //
+            // $errors = array();
+            //
+            // if (!$id) {
+            //     throw new Exception('Internal error');
+            // }
+            $product = $this->model->getProduct($id);
+            require_once($this->template);
 		}
         //render template
-        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        //$id = isset($_GET['id']) ? $_GET['id'] : null;
         //
         // $errors = array();
         //
         // if (!$id) {
         //     throw new Exception('Internal error');
         // }
-        $product = $this->model->getProduct($id);
-        require_once($this->template);
+        // $product = $this->model->getProduct($id);
+        // require_once($this->template);
     }
 }

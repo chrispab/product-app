@@ -3,10 +3,11 @@ class DeleteView
 {
     private $model;
 
-    public function __construct($model) {
+    public function __construct($model, $controller) {
         //$this->controller = $controller;
         $this->model = $model;
         $this->template = "tpl/delete_tpl.php";
+        $this->controller = $controller;
 
     }
     /**
@@ -34,20 +35,24 @@ class DeleteView
 	}
     public function output(){
         //prep data from model
-        //$data = "<p>" . $this->model->tstring ."</p>";
         //delete button clicked
 		///delete confirmed
 		$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 		if ( isset($_POST['delete-product']) ) { // delete button clicked on delete confirm form
-			$this->model->deleteProduct($id);
-			$this->model->modalAlert("Product Deleted");
+            $this->controller->deleteProduct($id);
+			//$this->model->deleteProduct($id);
+            $this->controller->modalAlert("Product Deleted"); //and redirect
+            //$this->model->modalAlert("Product Deleted");
+            //all done so redirect to prod list
+            //header('Location: ' . "index.php?op=list");
 		}
-		else  {	//show delete confirm page
+		else  {	//show delete confirm page - 1st visit to op func
 			$product = $this->model->getProduct($id);
 			//$this->renderView('delete.php',$product);
+            //render template
+            require_once($this->template);
 		}
-        //render template
-        require_once($this->template);
+
     }
 }
