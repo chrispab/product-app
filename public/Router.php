@@ -1,7 +1,7 @@
 <?php
 include_once "includes/includes.php";
 /**
- *
+ * Primary object processes request and creates MVC components to service it.
  */
 class Router {
     /**

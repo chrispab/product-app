@@ -1,10 +1,10 @@
 <?php
 class Model
 {
-    public $tstring;
+    public $string;
 
     public function __construct(){
-        $this->tstring = "The string has been loaded through the template.";
-        $this->template = "tpl/template.php";
+        $this->string = "The string has been loaded.";
+        $this->template = "tpl/mytemplate.php";
     }
 }

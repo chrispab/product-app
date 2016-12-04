@@ -17,7 +17,7 @@ class CreateController
         $this->model->modalAlert($message);
     }
 
-    /**
+/**
  * create controller action to create a new product in the ProductsModel
  */
     public function action() {
@@ -30,7 +30,7 @@ class CreateController
                 //only do following if all parama ok
                 $this->model->createNewProduct($product);
                 $this->model->storeImage($product->image);	//upload file
-                $this->model->modalAlert("New Product Created");
+                $this->model->modalAlert("New Product Created");//and redirect
             }
         }
     }
