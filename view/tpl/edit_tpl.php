@@ -4,7 +4,7 @@ include "includes/navbar.php";
 ?>
 
 <div class="container">
-<h3><strong>Update product</strong></h3>
+<h3><strong>Edit product</strong></h3>
 <h5 class='text-danger'><strong>* Required Information</strong></h5>
 
 	<form action="index.php?op=edit" method="post" enctype="multipart/form-data">

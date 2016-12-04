@@ -1,5 +1,7 @@
 <?php
-
+/**
+ *
+ */
 class Database
 {
 	//use seperate file for production db strings below
@@ -9,10 +11,16 @@ class Database
 	private static $dbPassword = 'myiot';
 
 	private static $conn = null;
-
+	
+/**
+ *
+ */
 	public function __construct() {
 	}
 
+/**
+ *
+ */
 	public static function connect() {
 		if (null == self::$conn) {
 			try {
@@ -25,6 +33,9 @@ class Database
 		return self::$conn;
 	}
 
+/**
+ *
+ */
 	public static function disconnect() {
 		self::$conn = null;
 	}

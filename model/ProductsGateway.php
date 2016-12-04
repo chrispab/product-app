@@ -1,6 +1,8 @@
 <?php
 require_once 'Database.php';
-
+/**
+ *
+ */
 class ProductsGateway extends Database {
 	public function __construct() {
 	}
@@ -21,6 +23,9 @@ class ProductsGateway extends Database {
 		return $products;
 	}
 
+	/**
+	 *
+	 */
 	public function selectById($id) {
 		$pdo = Database::connect();
 		$sql = $pdo->prepare("SELECT * FROM products WHERE id = ?");
@@ -30,6 +35,9 @@ class ProductsGateway extends Database {
 		return $result;
 	}
 
+	/**
+	 *
+	 */
 	public function insert($part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate) {
 
 		$pdo = Database::connect();
@@ -58,6 +66,9 @@ class ProductsGateway extends Database {
 		}
 	}
 
+	/**
+	 *
+	 */
 	public function edit($id, $part_number, $description, $image, $stock_quantity, $cost_price, $selling_price, $vat_rate) {
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -89,6 +100,9 @@ class ProductsGateway extends Database {
 		}
 	}
 
+	/**
+	 *
+	 */
 	public function delete($id) {
 
 		$pdo = Database::connect();

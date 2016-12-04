@@ -9,7 +9,7 @@ include "includes/navbar.php";
 		<p><a href="index.php?op=new" class="btn btn-success">
 			<span class="glyphicon glyphicon-plus-sign"></span>
 			Add a New Product</a></p>
-	<?php foreach ($product as $prod) : ?>
+	<?php foreach ($products as $prod) : ?>
 		<div class="row  border">
 	    <div class="col-sm-4 border" >
 			<p class="text-left"><strong>Part Number:</strong><br><?php echo htmlentities($prod->part_number); ?></p>
@@ -46,4 +46,3 @@ include "includes/navbar.php";
 
 <?php
 include "includes/footer.php";
-?>

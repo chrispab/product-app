@@ -1,17 +1,16 @@
 <?php
 require_once 'Product.php';
 require_once 'ProductsGateway.php';
-require_once 'ValidationException.php';
 
+class ProductsModel extends ProductsGateway {
 
-class ProductsService extends ProductsGateway {
-
-	private $productsGateway = null;
+	//private $productsGateway = null;
 
 /**
  * not used
  */
 	public function __construct() 	{
+		//echo "products model constr";
 	}
 
 /**
@@ -19,7 +18,8 @@ class ProductsService extends ProductsGateway {
  * selling_price etc
  */
 	public function getAllProducts($orderby) {
-		try {
+		//echo "in get all prods prodmodel";
+	try {
 			self::connect();
 			$result = $this->selectAll($orderby);
 			self::disconnect();

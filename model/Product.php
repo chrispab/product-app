@@ -1,10 +1,10 @@
 <?php
 /**
- * Product class represents product
+ * Product class represents product and actions directly related to it
  */
 class Product {
     public $id = NULL;
-    public $part_number 	= NULL;
+    public $part_number = NULL;
     public $description  = NULL;
     public $image = NULL;
     public $stock_quantity = NULL;
@@ -103,6 +103,7 @@ class Product {
         $errors['errs_count'] = $errs;
 		return ($errors);
 	}
+    
     /**
      *
      */
