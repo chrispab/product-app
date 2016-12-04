@@ -27,7 +27,7 @@ class ListView
         //$data = "<p>" . $this->model->tstring ."</p>";
 
         //render template
-        echo "listview op";
+        //echo "listview op";
         //var_dump( $this->model->getAllProducts("id") );
         $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : 'id';
         $products = $this->model->getAllProducts($orderby);

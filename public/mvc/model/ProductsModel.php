@@ -10,7 +10,7 @@ class ProductsModel extends ProductsGateway {
  * not used
  */
 	public function __construct() 	{
-		echo "products model constr";
+		//echo "products model constr";
 	}
 
 /**
@@ -18,7 +18,7 @@ class ProductsModel extends ProductsGateway {
  * selling_price etc
  */
 	public function getAllProducts($orderby) {
-		echo "in get all prods prodmodel";
+		//echo "in get all prods prodmodel";
 	try {
 			self::connect();
 			$result = $this->selectAll($orderby);

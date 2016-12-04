@@ -23,11 +23,6 @@ class Router {
 	 * @return void
 	 */
 	public function handleRequest() {
-        //check if form posted - part way thru operation
-        // if ( !empty($_POST) ) { //if  POST has values must be submitted form
-        //         //so execute action of controller to process post data
-        //     $c->action();
-        // }
         //if has GET vars in url - either new req or also has POST form data
         if ( $op = isset($_GET['op']) ) {
             $op = $_GET['op'];  // get operation if any
@@ -56,33 +51,13 @@ class Router {
                 $m = new $model();
                 $c = new $controller($m);
                 $v = new $view($m,$c);
-                //$view = new View($controller, $model);
 
                 //show view
                 echo $v->output();
-
-                // if ( !empty($_POST) ) { //if  POST has values must be submitted form
-                //         //so execute action of controller to process post data
-                //     $c->action();
-                // }
-                //do any controller actions here
-                //actions that mod the db are: create, edit, delete
-                // if (isset($_GET['id']) && !empty($_GET['id'])) {
-                //     //var_dump($_GET['id']);
-                //     $c->action( $_GET['id'] );
-                // }
-
-                //render the view
-
-
-
-
-
             }
             else {  //invalid operation supplied in url
                 $this->showError("Operation not supported", "Operation : " . $op . " - was not found");
             }
-
         }
         else {  //no url parameters in GET supplied - just show home page
             require_once (__DIR__ . "/view/tpl/home_tpl.php");
