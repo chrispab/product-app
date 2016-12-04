@@ -1,10 +1,5 @@
 <?php
-//define("ROOT_PATH", $_SERVER["DOCUMENT_ROOT"]);
 require_once ('Router.php');
-
-//echo __DIR__;
-
-//include_once "mvc/Router.php";
 
 /**
  * Primary file. Point of entry for the ap.
