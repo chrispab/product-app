@@ -23,6 +23,5 @@ class DeleteController
 
 
     public function action() {
-        //$this->model->tstring = “Updated Data, thanks to MVC and PHP!”;
     }
 }

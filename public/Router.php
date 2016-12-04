@@ -1,16 +1,5 @@
 <?php
-require_once (__DIR__. "/../model/ProductsModel.php");
-require_once (__DIR__. "/../view/ListView.php");
-require_once (__DIR__. "/../view/ShowView.php");
-require_once (__DIR__. "/../view/EditView.php");
-require_once (__DIR__. "/../view/DeleteView.php");
-require_once (__DIR__. "/../view/CreateView.php");
-require_once (__DIR__. "/../controller/ListController.php");
-require_once (__DIR__. "/../controller/ShowController.php");
-require_once (__DIR__. "/../controller/EditController.php");
-require_once (__DIR__. "/../controller/DeleteController.php");
-require_once (__DIR__. "/../controller/CreateController.php");
-
+include_once "includes.php";
 /**
  *
  */
@@ -38,12 +27,8 @@ class Router {
             foreach($data as $key => $components){
                 if ($op == $key) {
                     $model = $components['model'];
-                    //var_dump($model);
                     $view = $components['view'];
-                    //var_dump($view);
                     $controller = $components['controller'];
-                    //var_dump($controller);
-                    break;
                 }
             }
             //if model selected create the mvc
@@ -74,6 +59,6 @@ class Router {
      */
     public function showError($title, $message) {
         //echo __DIR__;
-        require_once (__DIR__ . "/view/tpl/error_tpl.php");
+        require_once (__DIR__ . "/../view/tpl/error_tpl.php");
     }
 }

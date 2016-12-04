@@ -3,7 +3,6 @@ class CreateView{
     private $model;
     private $controller;
     private $template;
-    //private $errors;    //form/validation errs array
 
     public function __construct($model, $controller) {
         //$this->controller = $controller;
@@ -11,6 +10,7 @@ class CreateView{
         $this->controller = $controller;
         $this->template = "tpl/create_tpl.php";
     }
+
     /**
 	 * create new product in db.
 	 *
@@ -18,22 +18,6 @@ class CreateView{
 	 *
 	 * @return void
 	 */
-	public function createProduct() {
-		$product = $this->productsService->tempProduct();
-		if (isset($_POST['add-new-product'])) { //if new product form submitted
-			$product->getPostParams();
-			$errors = $product->validateProductParams();
-			if (!$errors['errs_count']) {
-				//only do following if all params ok
-				$this->productsService->createNewProduct($product);
-				$this->productsService->storeImage($product->image);	//upload file
-				$this->productsService->modalAlert("New Product Created");
-			}
-		}
-		//$this->renderView('create.php',$product,$errors);
-	}
-
-
     public function output(){
         //prep view data
         $product = $this->model->tempProduct();     //get a temp product

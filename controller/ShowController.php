@@ -8,7 +8,6 @@ class ShowController
     }
 
     public function action() {
-        //$this->model->tstring = “Updated Data, thanks to MVC and PHP!”;
         //do nothing in show controller if called
     }
 }
