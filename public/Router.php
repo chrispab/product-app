@@ -1,15 +1,15 @@
 <?php
-require_once (__DIR__. "/model/ProductsModel.php");
-require_once (__DIR__. "/view/ListView.php");
-require_once (__DIR__. "/view/ShowView.php");
-require_once (__DIR__. "/view/EditView.php");
-require_once (__DIR__. "/view/DeleteView.php");
-require_once (__DIR__. "/view/CreateView.php");
-require_once (__DIR__. "/controller/ListController.php");
-require_once (__DIR__. "/controller/ShowController.php");
-require_once (__DIR__. "/controller/EditController.php");
-require_once (__DIR__. "/controller/DeleteController.php");
-require_once (__DIR__. "/controller/CreateController.php");
+require_once (__DIR__. "/../model/ProductsModel.php");
+require_once (__DIR__. "/../view/ListView.php");
+require_once (__DIR__. "/../view/ShowView.php");
+require_once (__DIR__. "/../view/EditView.php");
+require_once (__DIR__. "/../view/DeleteView.php");
+require_once (__DIR__. "/../view/CreateView.php");
+require_once (__DIR__. "/../controller/ListController.php");
+require_once (__DIR__. "/../controller/ShowController.php");
+require_once (__DIR__. "/../controller/EditController.php");
+require_once (__DIR__. "/../controller/DeleteController.php");
+require_once (__DIR__. "/../controller/CreateController.php");
 
 /**
  *
@@ -60,7 +60,7 @@ class Router {
             }
         }
         else {  //no url parameters in GET supplied - just show home page
-            require_once (__DIR__ . "/view/tpl/home_tpl.php");
+            require_once (__DIR__ . "/../view/tpl/home_tpl.php");
         }
     }
 
