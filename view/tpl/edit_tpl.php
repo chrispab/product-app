@@ -20,11 +20,15 @@ include "includes/navbar.php";
 			<label for="description">Description: <?php echo "<i class='text-danger'>* {$errors['description_err']}</i>";?></label>
 	        <textarea class="form-control" name="description" rows="10" cols="30" id="description"><?php echo $product->description; ?></textarea>
 		</div>
+
 		<div class="form-group">
 			<label for="image">Image: <?php echo "<i class='text-danger'>* {$errors['image_err']}</i>";?></label>
-			<img class="img-responsive" src="product_images/<?php echo $product->image; ?>" width="400">
-			<input type="file" name="imagefile"  id="image"  >
+			<div id="image-holder">
+				<img class="img-responsive" src="product_images/<?php echo $product->image; ?>" width="400">
+			</div>
+			<input type="file" name="imagefile"  id="fileUpload"  >
 		</div>
+
 		<div class="form-group">
 			<label for="stock_quantity">Stock Quantity: <?php echo "<i class='text-danger'>* {$errors['stock_quantity_err']}</i>";?></label>
 			<input type="text" name="stock_quantity" id="stock_quantity"  class="form-control" placeholder="Stock Quantity" value=<?php echo $product->stock_quantity; ?> required>
@@ -48,6 +52,10 @@ include "includes/navbar.php";
 		<a class="btn btn-default" href="index.php?op=list"><span class="glyphicon glyphicon-step-backward">Back</a>
 	</form>
 </div>
+
+<!-- image preview code -->
+<script src="js/myscripts.js"></script>
+
 <?php
 include "includes/footer.php";
 ?>
