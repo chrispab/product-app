@@ -38,7 +38,7 @@ An application to manage a product inventory. A product consists of a part numbe
 4. Now to create a new entry into apache sites-available:-  
 5. If you look inside the products_app directory, there is a folder called public. This is the “public_html” of the project.  
 6. To setup an Apache virtualhost for that folder, Create a  file:   /etc/apache2/sites-available/products_app.conf and use the following content (modified to match your paths)  
-e.g to create and edit: in the terminal: `sudo nano etc/apache2/sites-available/products_app.conf`  
+e.g to create and edit: in the terminal: `sudo nano /etc/apache2/sites-available/products_app.conf`  
 
 7. Enter the following in the file, edit paths to suit your folder setup.
 
