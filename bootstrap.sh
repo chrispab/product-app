@@ -50,7 +50,7 @@ mysql -uroot -p$DBPASSWD -e "grant all privileges on $DBNAME.* to '$DBUSER'@'loc
 echo -e "\n--- Creating MySQL products table in db ---\n"
 #mysql -u yourusername -p yourpassword yourdatabase
 #mysql>CREATE DATABASE a_new_database_name
-mysql -h$DBHOST -u$DBUSER  -p$DBPASSWD < /vagrant/db/create_products_db.sql
+mysql -h$DBHOST -u$DBUSER  -p$DBPASSWD < /vagrant/db/create_products_db.sql >> /vagrant/vm_build.log
 
 echo -e "\n--- Installing PHP-specific packages ---\n"
 apt-get -y install php apache2 libapache2-mod-php php-curl php-gd php-mysql php-gettext >> /vagrant/vm_build.log
