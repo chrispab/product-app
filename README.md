@@ -1,5 +1,5 @@
 # product-app
-A primitive MVC PHP CRUD application with Bootstrap.
+A DIY MVC PHP CRUD application with Bootstrap.
 
 *note: this readme is best viewed on github: https://github.com/chrispab/product-app*
 
