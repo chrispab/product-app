@@ -33,16 +33,14 @@ class EditView
 
             $errors = $product->validateProductParams();
             if ((!$errors['errs_count']) || (($errors['errs_count']==1) && ($errors['image_err']))) {//no errs so update db record
-                if (!empty($product->image)) { //if new img supplied, storeimage
+                if (!empty($product->image)) { // new img supplied
                     //new image so check for old image and del if required
                     $image_to_delete = $this->model->getCurrentImageFileName($product->id);
                     $this->model->delete_image_from_storage($image_to_delete);
                     $this->controller->storeImage($product->image);
-                }    //upload file				}
-                else {//use previous old image no change
+                } else {//use previous old image no change
                     $product->image = $this->model->getCurrentImageFileName($product->id);
                 }
-                //else leave image info as is
                 $this->controller->updateProduct($product);
                 $this->controller->modalAlert("Product Updated");//and redirect
             }
