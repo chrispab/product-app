@@ -118,4 +118,13 @@ class ProductsGateway extends Database {
 		$sql = $pdo->prepare("DELETE FROM products WHERE id =?");
 		$sql->execute(array($id));
 	}
+	/**
+	 * Delete image from storeImage
+	 * @param  string $image_file_name to delete.
+	 *
+	 * @return void
+	 */
+	 public function delete_image_from_storage($image_file_name) {
+		 unlink("product_images/".$image_file_name);
+	 }
 }
